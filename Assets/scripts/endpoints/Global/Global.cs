@@ -49,15 +49,9 @@ public class Global : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
                 result = www.error;
-            }
             else
-            {
-                Debug.Log(www.downloadHandler.text);
                 result = www.downloadHandler.text;
-            }
 
             callback(result);
         }
