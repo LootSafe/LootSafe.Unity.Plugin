@@ -23,18 +23,60 @@ public class Balance : MonoBehaviour
 
     /* Methods */
 
-    public string balanceOf()
+    public IEnumerator balanceOf(string address)
     {
-        return "";
+        string url = (apiUrl + "/balance/token/" + address);
+                
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string itemBalance()
+    public IEnumerator itemBalance(string itemAddress, string address)
     {
-        return "";
+        string url = (apiUrl + "/balance/item/" + itemAddress + "/" + address);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string itemBalances()
+    public IEnumerator itemBalances(string address)
     {
-        return "";
+        string url = (apiUrl + "/balance/items/" + address);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 }

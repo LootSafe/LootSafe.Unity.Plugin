@@ -1,13 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Crafter {
 
     private string apiUrl;
     private string apiKey;
     private string ethAcc;
-
+    
     /* Private Constructor */
 
     private Crafter(){}
@@ -23,23 +23,79 @@ public class Crafter {
 
     /* Methods */
 
-    private string getCraftables()
+    public IEnumerator getCraftables()
     {
-        return "";
+        string url = (apiUrl + "/craftables");
+        
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    private string getDeconstructables()
+    public IEnumerator getDeconstructables()
     {
-        return "";
+        string url = (apiUrl + "/deconstructables");
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    private string getDeconstructionRecipe()
+    public IEnumerator getDeconstructionRecipe(string item)
     {
-        return "";
+        string url = (apiUrl + "/recipe/deconstruction/get/" + item);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    private string getRecipe()
+    public IEnumerator getRecipe(string item)
     {
-        return "";
+        string url = (apiUrl + "/recipe/get/" + item);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 }

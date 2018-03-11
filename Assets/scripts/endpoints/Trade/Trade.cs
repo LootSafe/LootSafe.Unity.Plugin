@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Trade {
 
@@ -23,18 +23,60 @@ public class Trade {
 
     /* Methods */
 
-    public string getMerchantTrade()
+    public IEnumerator getMerchantTrade(string merchant)
     {
-        return "";
+        string url = (apiUrl + "/trades/" + merchant);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string getTrade()
+    public IEnumerator getTrade(string tradeId)
     {
-        return "";
+        string url = (apiUrl + "/trade/" + tradeId);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string getTrades()
+    public IEnumerator getTrades()
     {
-        return "";
+        string url = (apiUrl + "/trades");
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 }

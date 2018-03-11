@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class LootBox : MonoBehaviour {
 
@@ -23,18 +24,60 @@ public class LootBox : MonoBehaviour {
 
     /* Methods */
 
-    public string getChances()
+    public IEnumerator getChances()
     {
-        return "";
+        string url = (apiUrl + "/lootbox/chances");
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string getCost()
+    public IEnumerator getCost()
     {
-        return "";
+        string url = (apiUrl + "/lootbox/cost");
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 
-    public string getItems()
+    public IEnumerator getItems(string rarity)
     {
-        return "";
+        string url = (apiUrl + "/lootbox/items/" + rarity);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
     }
 }
