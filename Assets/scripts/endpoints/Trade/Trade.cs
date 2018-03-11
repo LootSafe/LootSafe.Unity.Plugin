@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -23,8 +24,9 @@ public class Trade {
 
     /* Methods */
 
-    public IEnumerator getMerchantTrade(string merchant)
+    public IEnumerator getMerchantTrade(string merchant, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/trades/" + merchant);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -34,16 +36,21 @@ public class Trade {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getTrade(string tradeId)
+    public IEnumerator getTrade(string tradeId, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/trade/" + tradeId);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -53,16 +60,21 @@ public class Trade {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getTrades()
+    public IEnumerator getTrades(Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/trades");
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -72,11 +84,15 @@ public class Trade {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -23,8 +24,9 @@ public class Balance : MonoBehaviour
 
     /* Methods */
 
-    public IEnumerator balanceOf(string address)
+    public IEnumerator balanceOf(string address, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/balance/token/" + address);
                 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -34,16 +36,21 @@ public class Balance : MonoBehaviour
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator itemBalance(string itemAddress, string address)
+    public IEnumerator itemBalance(string itemAddress, string address, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/balance/item/" + itemAddress + "/" + address);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -53,16 +60,21 @@ public class Balance : MonoBehaviour
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator itemBalances(string address)
+    public IEnumerator itemBalances(string address, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/balance/items/" + address);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -72,11 +84,15 @@ public class Balance : MonoBehaviour
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 }

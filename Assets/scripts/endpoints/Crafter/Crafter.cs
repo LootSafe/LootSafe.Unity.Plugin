@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -23,8 +24,9 @@ public class Crafter {
 
     /* Methods */
 
-    public IEnumerator getCraftables()
+    public IEnumerator getCraftables(Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/craftables");
         
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -34,16 +36,21 @@ public class Crafter {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getDeconstructables()
+    public IEnumerator getDeconstructables(Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/deconstructables");
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -53,16 +60,21 @@ public class Crafter {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getDeconstructionRecipe(string item)
+    public IEnumerator getDeconstructionRecipe(string item, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/recipe/deconstruction/get/" + item);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -72,16 +84,21 @@ public class Crafter {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getRecipe(string item)
+    public IEnumerator getRecipe(string item, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/recipe/get/" + item);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -91,11 +108,15 @@ public class Crafter {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 }

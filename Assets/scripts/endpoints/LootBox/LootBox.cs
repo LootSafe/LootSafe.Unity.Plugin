@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -24,8 +25,9 @@ public class LootBox : MonoBehaviour {
 
     /* Methods */
 
-    public IEnumerator getChances()
+    public IEnumerator getChances(Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/lootbox/chances");
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -35,16 +37,21 @@ public class LootBox : MonoBehaviour {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getCost()
+    public IEnumerator getCost(Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/lootbox/cost");
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -54,16 +61,21 @@ public class LootBox : MonoBehaviour {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 
-    public IEnumerator getItems(string rarity)
+    public IEnumerator getItems(string rarity, Action<string> callback)
     {
+        string result = "";
         string url = (apiUrl + "/lootbox/items/" + rarity);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
@@ -73,11 +85,15 @@ public class LootBox : MonoBehaviour {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 }

@@ -46,4 +46,5 @@ public class LootSafe
 
         // Not functional yet, doesn't do any verification.
     }
+
 }

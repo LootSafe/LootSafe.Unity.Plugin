@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Global : MonoBehaviour {
+public class Global : MonoBehaviour
+{
 
     private string apiUrl;
     private string apiKey;
@@ -10,7 +12,7 @@ public class Global : MonoBehaviour {
 
     /* Private Constructor */
 
-    private Global(){}
+    private Global() { }
 
     /* Public Constructor */
 
@@ -23,7 +25,7 @@ public class Global : MonoBehaviour {
 
     /* Methods */
 
-    public IEnumerator newItem(string name, string id, int totalSupply, string metadata)
+    public IEnumerator newItem(string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
         string url = (apiUrl + "/item/new");
 
@@ -35,6 +37,8 @@ public class Global : MonoBehaviour {
 
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
+            string result = "";
+
             www.SetRequestHeader("Accept", "application/json, text/plain, */*");
             www.SetRequestHeader("Content-Type", "application/json");
             www.SetRequestHeader("key", apiKey);
@@ -47,11 +51,15 @@ public class Global : MonoBehaviour {
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
+                result = www.error;
             }
             else
             {
                 Debug.Log(www.downloadHandler.text);
+                result = www.downloadHandler.text;
             }
+
+            callback(result);
         }
     }
 }
