@@ -77,14 +77,9 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingGlobal)
         {
-            /*
             StartCoroutine(lootsafe.global.newItem("FNX45", "fnx45", 120000, "metadata", (status) => {
                 Debug.Log("lootsafe.global.newItem " + status.ToString());
             }));
-            */
-
-            // Unauthorized Access
-            // Implement Token Access
         }
 
         /* Testing LootBox*/

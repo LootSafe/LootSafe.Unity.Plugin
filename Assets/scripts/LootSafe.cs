@@ -5,6 +5,8 @@
     private string ethAcc;
     private string otpKey;
 
+    private CustomYubiKeyClient yubikey;
+
     /* End Points */
 
     public Balance balance;
@@ -25,9 +27,11 @@
         this.apiKey = apiKey;
         this.ethAcc = ethAcc;
 
+        yubikey = new CustomYubiKeyClient("");
+
         balance = new Balance(apiUrl,apiKey,ethAcc);
         crafter = new Crafter(apiUrl, apiKey, ethAcc);
-        global = new Global(apiUrl, apiKey, ethAcc); 
+        global = new Global(apiUrl, apiKey, ethAcc, yubikey); 
         lootbox = new LootBox(apiUrl, apiKey, ethAcc);
         trade = new Trade(apiUrl, apiKey, ethAcc);
     }
@@ -36,10 +40,7 @@
 
     private string otp(string key)
     {
-        this.otpKey = key;
-        return key;
-
-        // Not functional yet, doesn't do any verification.
-        // This will be moved into it's own class
+        yubikey = new CustomYubiKeyClient(1, key, "nounce");
+        return yubikey.otp;
     }
 }

@@ -10,17 +10,20 @@ public class Global
     private string apiKey;
     private string ethAcc;
 
+    private CustomYubiKeyClient yubi;
+
     /* Private Constructor */
 
     private Global(){}
 
     /* Public Constructor */
 
-    public Global (string apiUrl, string apiKey, string ethAcc)
+    public Global (string apiUrl, string apiKey, string ethAcc, CustomYubiKeyClient yubi)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
         this.ethAcc = ethAcc;
+        this.yubi = yubi;
     }
 
     /* Methods */
@@ -49,9 +52,7 @@ public class Global
             www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
             www.SetRequestHeader("dataType", "json");
             www.SetRequestHeader("key", apiKey);
-            www.SetRequestHeader("otp", "");
-
-            //Add authentication here
+            www.SetRequestHeader("otp", yubi.otp);
 
             yield return www.SendWebRequest();
 
