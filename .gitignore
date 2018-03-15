@@ -34,3 +34,4 @@ sysinfo.txt
 
 # Custom
 /Assets/scenes*
+/Assets/scenes.meta
