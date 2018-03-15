@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LootSafe
+﻿public class LootSafe
 {
     private string apiUrl;
     private string apiKey;
@@ -28,7 +24,6 @@ public class LootSafe
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
         this.ethAcc = ethAcc;
-        this.otpKey = "";
 
         balance = new Balance(apiUrl,apiKey,ethAcc);
         crafter = new Crafter(apiUrl, apiKey, ethAcc);
@@ -45,6 +40,6 @@ public class LootSafe
         return key;
 
         // Not functional yet, doesn't do any verification.
+        // This will be moved into it's own class
     }
-
 }

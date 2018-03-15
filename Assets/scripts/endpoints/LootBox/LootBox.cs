@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-
-public class LootBox : MonoBehaviour {
+public class LootBox {
 
     private string apiUrl;
     private string apiKey;
@@ -16,7 +15,7 @@ public class LootBox : MonoBehaviour {
 
     /* Public Constructor */
 
-    public LootBox(string apiUrl, string apiKey, string ethAcc)
+    public LootBox (string apiUrl, string apiKey, string ethAcc)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
@@ -35,9 +34,9 @@ public class LootBox : MonoBehaviour {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -53,9 +52,9 @@ public class LootBox : MonoBehaviour {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -71,9 +70,9 @@ public class LootBox : MonoBehaviour {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
-using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine;
 
-public class Balance : MonoBehaviour
+public class Balance
 {
     private string apiUrl;
     private string apiKey;
@@ -15,7 +15,7 @@ public class Balance : MonoBehaviour
 
     /* Public Constructor */
 
-    public Balance (string apiUrl, string apiKey, string ethAcc)
+    public Balance(string apiUrl, string apiKey, string ethAcc)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
@@ -34,9 +34,9 @@ public class Balance : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -46,15 +46,15 @@ public class Balance : MonoBehaviour
     {
         string result = "";
         string url = (apiUrl + "/balance/item/" + itemAddress + "/" + address);
-
+         
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -70,9 +70,9 @@ public class Balance : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using UnityEngine;
 using UnityEngine.Networking;
 
 public class Crafter {
@@ -15,7 +14,7 @@ public class Crafter {
 
     /* Public Constructor */
 
-    public Crafter(string apiUrl, string apiKey, string ethAcc)
+    public Crafter (string apiUrl, string apiKey, string ethAcc)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
@@ -31,12 +30,14 @@ public class Crafter {
         
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
+            www.chunkedTransfer = false;
+
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -52,9 +53,9 @@ public class Crafter {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -70,9 +71,9 @@ public class Crafter {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
@@ -88,9 +89,9 @@ public class Crafter {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = www.error + "\nStatus Code: " + www.responseCode;
             else
-                result = www.downloadHandler.text;
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
 
             callback(result);
         }
