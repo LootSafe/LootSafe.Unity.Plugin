@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine.Networking;
-using UnityEngine;
 
 public class Balance
 {
