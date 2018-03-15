@@ -54,8 +54,8 @@ Assets/lootsafe-api-currentdate.unitypackage
 **Balance**
 
 * balanceOf(string address)
-* itemBalance(string itemAddress, string address)
 * itemBalances(string address)
+* **~~itemBalance(string itemAddress, string address)~~ In Progress**
 
 **Crafter**
 
