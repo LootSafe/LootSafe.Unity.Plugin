@@ -37,6 +37,18 @@ lootsafe.crafter.getCraftables
 {"status":200,"message":"Craftables fetched","data":[]}
 ```
 
+### Source and Importing
+
+Source Directory
+```
+Assets/lootsafe/scripts/
+```
+
+Unity Package
+```
+Assets/lootsafe-api-currentdate.unitypackage
+```
+
 ### Endpoints
 
 **Balance**
