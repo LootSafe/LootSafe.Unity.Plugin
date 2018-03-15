@@ -10,7 +10,6 @@
     public Crafter crafter;
     public Global global;
     public LootBox lootbox;
-    public Trade trade;
 
     /* Private Constructor */
 
@@ -26,7 +25,6 @@
         crafter = new Crafter(apiUrl);
         global = new Global(apiUrl, apiKey, yubikey); 
         lootbox = new LootBox(apiUrl);
-        trade = new Trade(apiUrl);
     }
 
     /* Methods */
