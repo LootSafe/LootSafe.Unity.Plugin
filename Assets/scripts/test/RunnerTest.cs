@@ -8,7 +8,6 @@ public class RunnerTest : MonoBehaviour {
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
     private static string ethAcc = "0x5dc89fd12c328147119afb8ce6292a2aae0b5171";
 
-    string eightTimesScopeAddress = "0x3ab412b1ebac03791789763fba17fc1f4e368662";
     string item = "0x8a3eb4442f6c512a1c685c8ba320e28909aaa0cb";
     string rarity = "uncommon";
 
@@ -20,7 +19,7 @@ public class RunnerTest : MonoBehaviour {
     {
         /* Creating the object */
 
-        lootsafe = new LootSafe(apiUrl, apiKey, ethAcc);
+        lootsafe = new LootSafe(apiUrl, apiKey);
 
         bool testingBalance = true;
         bool testingCrafter = true;
@@ -42,6 +41,9 @@ public class RunnerTest : MonoBehaviour {
             }));
 
             /*
+        
+            string eightTimesScopeAddress = "0x3ab412b1ebac03791789763fba17fc1f4e368662";
+
             StartCoroutine(lootsafe.balance.itemBalance(eightTimesScopeAddress, ethAcc, (status) => {
                 Debug.Log("lootsafe.balance.itemBalance: " + eightTimesScopeAddress + " " + ethAcc + "\n" + status.ToString());
             }));
@@ -98,21 +100,5 @@ public class RunnerTest : MonoBehaviour {
                 Debug.Log("lootsafe.lootbox.getItems: " + rarity + "\n" + status.ToString());
             }));
         }
-        
-        /* Testing Trade*/        
-        /* Currently not implemented in the API
-
-            StartCoroutine(lootsafe.trade.getMerchantTrade(merchant, (status) => {
-                Debug.Log("lootsafe.trade.getMerchantTrade: " + merchant + "\n" + status.ToString());
-            }));
-
-            StartCoroutine(lootsafe.trade.getTrade(tradeId, (status) => {
-                Debug.Log("lootsafe.trade.getTrade: " + tradeId + "\n" + status.ToString());
-            }));
-
-            StartCoroutine(lootsafe.trade.getTrades((status) => {
-                Debug.Log("lootsafe.trade.getTrades\n" + status.ToString());
-            }));
-        */
     }
 }

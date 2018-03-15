@@ -8,7 +8,6 @@ public class Global
 {
     private string apiUrl;
     private string apiKey;
-    private string ethAcc;
 
     private CustomYubiKeyClient yubi;
 
@@ -18,11 +17,10 @@ public class Global
 
     /* Public Constructor */
 
-    public Global (string apiUrl, string apiKey, string ethAcc, CustomYubiKeyClient yubi)
+    public Global (string apiUrl, string apiKey, CustomYubiKeyClient yubi)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
-        this.ethAcc = ethAcc;
         this.yubi = yubi;
     }
 

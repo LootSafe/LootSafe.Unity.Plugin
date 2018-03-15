@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 public class Balance
 {
     private string apiUrl;
-    private string apiKey;
-    private string ethAcc;
 
     /* Private Constructor */
 
@@ -14,11 +12,9 @@ public class Balance
 
     /* Public Constructor */
 
-    public Balance(string apiUrl, string apiKey, string ethAcc)
+    public Balance(string apiUrl)
     {
         this.apiUrl = apiUrl;
-        this.apiKey = apiKey;
-        this.ethAcc = ethAcc;
     }
 
     /* Methods */

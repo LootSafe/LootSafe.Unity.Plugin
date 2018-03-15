@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 public class LootBox {
 
     private string apiUrl;
-    private string apiKey;
-    private string ethAcc;
 
     /* Private Constructor */
 
@@ -14,11 +12,9 @@ public class LootBox {
 
     /* Public Constructor */
 
-    public LootBox (string apiUrl, string apiKey, string ethAcc)
+    public LootBox (string apiUrl)
     {
         this.apiUrl = apiUrl;
-        this.apiKey = apiKey;
-        this.ethAcc = ethAcc;
     }
 
     /* Methods */

@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 public class Trade {
 
     private string apiUrl;
-    private string apiKey;
-    private string ethAcc;
 
     /* Private Constructor */
 
@@ -14,11 +12,9 @@ public class Trade {
 
     /* Public Constructor */
 
-    public Trade (string apiUrl, string apiKey, string ethAcc)
+    public Trade (string apiUrl)
     {
         this.apiUrl = apiUrl;
-        this.apiKey = apiKey;
-        this.ethAcc = ethAcc;
     }
 
     /* Methods */

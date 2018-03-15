@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class CustomYubiKeyClient : MonoBehaviour {
+public class CustomYubiKeyClient {
 
     public string id { get; set; }
     public string otp { get; set; }

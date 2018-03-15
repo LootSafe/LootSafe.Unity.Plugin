@@ -1,8 +1,5 @@
 ﻿public class LootSafe
 {
-    private string apiUrl;
-    private string apiKey;
-    private string ethAcc;
     private string otpKey;
 
     private CustomYubiKeyClient yubikey;
@@ -21,19 +18,15 @@
 
     /* Public Constructor */
 
-    public LootSafe(string apiUrl, string apiKey, string ethAcc)
+    public LootSafe(string apiUrl, string apiKey)
     {
-        this.apiUrl = apiUrl;
-        this.apiKey = apiKey;
-        this.ethAcc = ethAcc;
-
         yubikey = new CustomYubiKeyClient("");
 
-        balance = new Balance(apiUrl,apiKey,ethAcc);
-        crafter = new Crafter(apiUrl, apiKey, ethAcc);
-        global = new Global(apiUrl, apiKey, ethAcc, yubikey); 
-        lootbox = new LootBox(apiUrl, apiKey, ethAcc);
-        trade = new Trade(apiUrl, apiKey, ethAcc);
+        balance = new Balance(apiUrl);
+        crafter = new Crafter(apiUrl);
+        global = new Global(apiUrl, apiKey, yubikey); 
+        lootbox = new LootBox(apiUrl);
+        trade = new Trade(apiUrl);
     }
 
     /* Methods */
