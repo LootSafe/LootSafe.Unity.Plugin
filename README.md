@@ -39,14 +39,14 @@ lootsafe.crafter.getCraftables
 
 ### Source and Importing
 
-Source Directory
+Source Directory Location
 ```
 Assets/lootsafe/scripts/
 ```
 
-Unity Package
+Unity Package Location
 ```
-Assets/lootsafe-api-currentdate.unitypackage
+lootsafe-api-currentdate.unitypackage
 ```
 
 ### Endpoints
