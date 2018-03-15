@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Example : MonoBehaviour {
 
@@ -12,9 +10,7 @@ public class Example : MonoBehaviour {
         LootSafe lootsafe = new LootSafe(apiUrl, apiKey);
 
         StartCoroutine(lootsafe.crafter.getCraftables((status) => {
-
             Debug.Log("lootsafe.crafter.getCraftables\n" + status.ToString());
-
             // Do stuff with status string.
         }));
     }
