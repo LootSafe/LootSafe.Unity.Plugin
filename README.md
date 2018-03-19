@@ -5,9 +5,9 @@
 Currently working on Unity3D version 2017.3.1f1 . 
 Player Settings
 
-**Scripting Runtime** - Version Experimental (.NET 4.6 Equivalent)
-**Scripting Backend** - Mono
-**API Compatibility** - .NET 4.6
+* **Scripting Runtime** - Version Experimental (.NET 4.6 Equivalent)
+* **Scripting Backend** - Mono
+* **API Compatibility** - .NET 4.6
 
 ### Usage
 
