@@ -73,3 +73,8 @@ lootsafe-api-currentdate.unitypackage
 * getChances()
 * getCost()
 * getItems(string rarity)
+
+### Issues
+
+* OTP added to the project and ready for implementation but it isn't being used yet.
+* itemBalance endpoint isn't working. Seems to be a serverside issue currently.
