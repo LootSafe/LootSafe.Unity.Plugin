@@ -63,26 +63,26 @@ lootsafe-api-currentdate.unitypackage
 
 **Balance**
 
-* balanceOf(string address)
-* itemBalances(string address)
-* **~~itemBalance(string itemAddress, string address)~~ In Progress**
+* balanceOf_GET(string address)
+* itemBalances_GET(string address)
+* **~~itemBalance_GET(string itemAddress, string address)~~ In Progress**
 
 **Crafter**
 
-* getCraftables()
-* getDeconstructables()
-* getDeconstructionRecipe(string item)
-* getRecipe(string item)
+* getCraftables_GET()
+* getDeconstructables_GET()
+* getDeconstructionRecipe_GET(string item)
+* getRecipe_GET(string item)
 
 **Global**
 
-* newItem(string name, string id, int totalSupply, string metadata)
+* newItem_POST(string name, string id, int totalSupply, string metadata)
 
 **LootBox**
 
-* getChances()
-* getCost()
-* getItems(string rarity)
+* getChances_GET()
+* getCost_GET()
+* getItems_GET(string rarity)
 
 ### Issues
 

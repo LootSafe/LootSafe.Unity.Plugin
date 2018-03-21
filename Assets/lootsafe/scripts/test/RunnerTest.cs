@@ -22,9 +22,9 @@ public class RunnerTest : MonoBehaviour {
         lootsafe = new LootSafe(apiUrl, apiKey);
 
         bool testingBalance = true;
-        bool testingCrafter = false;
-        bool testingGlobal = false;
-        bool testingLootBox = false;
+        bool testingCrafter = true;
+        bool testingGlobal = true;
+        bool testingLootBox = true;
 
         /* Testing Balance */
 
