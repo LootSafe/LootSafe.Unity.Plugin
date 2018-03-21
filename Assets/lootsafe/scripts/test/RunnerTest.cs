@@ -58,19 +58,19 @@ public class RunnerTest : MonoBehaviour {
         if (testingCrafter) {
 
             StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
-                Debug.Log("lootsafe.crafter.getCraftables\n" + status.ToString());
+                Debug.Log("lootsafe.crafter.getCraftables_GET\n" + status.ToString());
             }));
 
             StartCoroutine(lootsafe.crafter.getDeconstructables_GET((status) => {
-                Debug.Log("lootsafe.crafter.getDeconstructables\n" + status.ToString());
+                Debug.Log("lootsafe.crafter.getDeconstructables_GET\n" + status.ToString());
             }));
 
             StartCoroutine(lootsafe.crafter.getDeconstructionRecipe_GET(item, (status) => {
-                Debug.Log("lootsafe.crafter.getDeconstructionRecipe: " + item + "\n" + status.ToString());
+                Debug.Log("lootsafe.crafter.getDeconstructionRecipe_GET: " + item + "\n" + status.ToString());
             }));
 
             StartCoroutine(lootsafe.crafter.getRecipe_GET(item, (status) => {
-                Debug.Log("lootsafe.crafter.getRecipe: " + item + "\n" + status.ToString());
+                Debug.Log("lootsafe.crafter.getRecipe_GET: " + item + "\n" + status.ToString());
             }));
 
         }
