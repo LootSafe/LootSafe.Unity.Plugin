@@ -6,23 +6,29 @@ public class Balance
 {
     private string apiUrl;
 
-    /* Private Constructor */
+    private string url_balanceOf = "/balance/token/";
+    private string url_itemBalance = "/balance/item/";
+    private string url_itemBalances = "/balance/items/";
+
+    /* Constructors */
 
     private Balance(){}
-
-    /* Public Constructor */
 
     public Balance(string apiUrl)
     {
         this.apiUrl = apiUrl;
+
+        this.url_balanceOf = this.apiUrl + this.url_balanceOf;
+        this.url_itemBalance = this.apiUrl + this.url_itemBalance;
+        this.url_itemBalances = this.apiUrl + this.url_itemBalances;
     }
 
-    /* Methods */
+    /* Endpoint Wrappers */
 
-    public IEnumerator balanceOf(string address, Action<string> callback)
+    public IEnumerator balanceOf_GET(string address, Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/balance/token/" + address);
+        string url = (url_balanceOf + address);
                 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -37,10 +43,10 @@ public class Balance
         }
     }
 
-    public IEnumerator itemBalance(string itemAddress, string address, Action<string> callback)
+    public IEnumerator itemBalance_GET(string itemAddress, string address, Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/balance/item/" + itemAddress + "/" + address);
+        string url = (url_itemBalance + "/" + address);
          
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -55,10 +61,10 @@ public class Balance
         }
     }
 
-    public IEnumerator itemBalances(string address, Action<string> callback)
+    public IEnumerator itemBalances_GET(string address, Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/balance/items/" + address);
+        string url = (url_itemBalances + address);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {

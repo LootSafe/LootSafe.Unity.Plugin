@@ -33,8 +33,8 @@ public class Example : MonoBehaviour {
 
         LootSafe lootsafe = new LootSafe(apiUrl, apiKey);
 
-        StartCoroutine(lootsafe.crafter.getCraftables((status) => {
-            Debug.Log("lootsafe.crafter.getCraftables\n" + status.ToString());
+        StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
+            Debug.Log("lootsafe.crafter.getCraftables_GET\n" + status.ToString());
             // Do stuff with status string.
         }));
     }
@@ -43,7 +43,7 @@ public class Example : MonoBehaviour {
 
 Output from Debug.Log
 ```
-lootsafe.crafter.getCraftables
+lootsafe.crafter.getCraftables_GET
 {"status":200,"message":"Craftables fetched","data":[]}
 ```
 

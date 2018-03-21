@@ -1,30 +1,38 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Networking;
 
 public class Crafter {
 
     private string apiUrl;
-    
-    /* Private Constructor */
+
+    private String url_getCraftables = "/craftables";
+    private String url_getDeconstructables = "/deconstructables";
+    private String url_getDeconstructablesRecipe = "/recipe/deconstruction/get/";
+    private String url_getRecipe = "/recipe/get/";
+
+    /* Constructors */
 
     private Crafter(){}
-
-    /* Public Constructor */
 
     public Crafter (string apiUrl)
     {
         this.apiUrl = apiUrl;
+
+        this.url_getCraftables = this.apiUrl + this.url_getCraftables;
+        this.url_getDeconstructables = this.apiUrl + this.url_getDeconstructables;
+        this.url_getDeconstructablesRecipe = this.apiUrl + this.url_getDeconstructablesRecipe;
+        this.url_getRecipe = this.apiUrl + this.url_getRecipe;
     }
 
-    /* Methods */
+    /* Endpoint Wrappers */
 
-    public IEnumerator getCraftables(Action<string> callback)
+    public IEnumerator getCraftables_GET(Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/craftables");
         
-        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        using (UnityWebRequest www = UnityWebRequest.Get(url_getCraftables))
         {
             www.chunkedTransfer = false;
 
@@ -39,10 +47,27 @@ public class Crafter {
         }
     }
 
-    public IEnumerator getDeconstructables(Action<string> callback)
+    public IEnumerator getDeconstructables_GET(Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/deconstructables");
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url_getDeconstructables))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                result = www.error + "\nStatus Code: " + www.responseCode;
+            else
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+
+            callback(result);
+        }
+    }
+
+    public IEnumerator getDeconstructionRecipe_GET(string item, Action<string> callback)
+    {
+        string result = "";
+        string url = (url_getDeconstructablesRecipe + item);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -57,28 +82,10 @@ public class Crafter {
         }
     }
 
-    public IEnumerator getDeconstructionRecipe(string item, Action<string> callback)
+    public IEnumerator getRecipe_GET(string item, Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/recipe/deconstruction/get/" + item);
-
-        using (UnityWebRequest www = UnityWebRequest.Get(url))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
-            else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
-
-            callback(result);
-        }
-    }
-
-    public IEnumerator getRecipe(string item, Action<string> callback)
-    {
-        string result = "";
-        string url = (apiUrl + "/recipe/get/" + item);
+        string url = (url_getRecipe + item);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {

@@ -6,25 +6,30 @@ public class LootBox {
 
     private string apiUrl;
 
-    /* Private Constructor */
+    private string url_getChances = "/lootbox/chances";
+    private string url_getCost = "/lootbox/cost";
+    private string url_getItems = "/lootbox/items/";
+
+    /* Constructors */
 
     private LootBox(){}
-
-    /* Public Constructor */
 
     public LootBox (string apiUrl)
     {
         this.apiUrl = apiUrl;
+
+        this.url_getChances = this.apiUrl + this.url_getChances;
+        this.url_getCost = this.apiUrl + this.url_getCost;
+        this.url_getItems = this.apiUrl + this.url_getItems;
     }
 
-    /* Methods */
+    /* Endpoint Wrappers */
 
-    public IEnumerator getChances(Action<string> callback)
+    public IEnumerator getChances_GET(Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/lootbox/chances");
 
-        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        using (UnityWebRequest www = UnityWebRequest.Get(url_getChances))
         {
             yield return www.SendWebRequest();
 
@@ -37,12 +42,11 @@ public class LootBox {
         }
     }
 
-    public IEnumerator getCost(Action<string> callback)
+    public IEnumerator getCost_GET(Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/lootbox/cost");
 
-        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        using (UnityWebRequest www = UnityWebRequest.Get(url_getCost))
         {
             yield return www.SendWebRequest();
 
@@ -55,10 +59,10 @@ public class LootBox {
         }
     }
 
-    public IEnumerator getItems(string rarity, Action<string> callback)
+    public IEnumerator getItems_GET(string rarity, Action<string> callback)
     {
         string result = "";
-        string url = (apiUrl + "/lootbox/items/" + rarity);
+        string url = (url_getItems + rarity);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {

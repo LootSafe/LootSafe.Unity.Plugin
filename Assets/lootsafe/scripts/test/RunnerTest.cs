@@ -22,30 +22,30 @@ public class RunnerTest : MonoBehaviour {
         lootsafe = new LootSafe(apiUrl, apiKey);
 
         bool testingBalance = true;
-        bool testingCrafter = true;
-        bool testingGlobal = true;
-        bool testingLootBox = true;
+        bool testingCrafter = false;
+        bool testingGlobal = false;
+        bool testingLootBox = false;
 
         /* Testing Balance */
 
         if (testingBalance)
         {
-            StartCoroutine(lootsafe.balance.balanceOf(ethAcc, (status) =>
+            StartCoroutine(lootsafe.balance.balanceOf_GET(ethAcc, (status) =>
             {
-                Debug.Log("lootsafe.balance.balanceOf: " + ethAcc + "\n" + status.ToString());
+                Debug.Log("lootsafe.balance.balanceOf_GET: " + ethAcc + "\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.balance.itemBalances(ethAcc, (status) =>
+            StartCoroutine(lootsafe.balance.itemBalances_GET(ethAcc, (status) =>
             {
-                Debug.Log("lootsafe.balance.itemBalances: " + ethAcc + "\n" + status.ToString());
+                Debug.Log("lootsafe.balance.itemBalances_GET: " + ethAcc + "\n" + status.ToString());
             }));
 
             /*
         
             string eightTimesScopeAddress = "0x3ab412b1ebac03791789763fba17fc1f4e368662";
 
-            StartCoroutine(lootsafe.balance.itemBalance(eightTimesScopeAddress, ethAcc, (status) => {
-                Debug.Log("lootsafe.balance.itemBalance: " + eightTimesScopeAddress + " " + ethAcc + "\n" + status.ToString());
+            StartCoroutine(lootsafe.balance.itemBalance_GET(eightTimesScopeAddress, ethAcc, (status) => {
+                Debug.Log("lootsafe.balance.itemBalance_GET: " + eightTimesScopeAddress + " " + ethAcc + "\n" + status.ToString());
             }));
 
             Issue
@@ -57,19 +57,19 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingCrafter) {
 
-            StartCoroutine(lootsafe.crafter.getCraftables((status) => {
+            StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
                 Debug.Log("lootsafe.crafter.getCraftables\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getDeconstructables((status) => {
+            StartCoroutine(lootsafe.crafter.getDeconstructables_GET((status) => {
                 Debug.Log("lootsafe.crafter.getDeconstructables\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getDeconstructionRecipe(item, (status) => {
+            StartCoroutine(lootsafe.crafter.getDeconstructionRecipe_GET(item, (status) => {
                 Debug.Log("lootsafe.crafter.getDeconstructionRecipe: " + item + "\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getRecipe(item, (status) => {
+            StartCoroutine(lootsafe.crafter.getRecipe_GET(item, (status) => {
                 Debug.Log("lootsafe.crafter.getRecipe: " + item + "\n" + status.ToString());
             }));
 
@@ -79,8 +79,8 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingGlobal)
         {
-            StartCoroutine(lootsafe.global.newItem("FNX45", "fnx45", 120000, "metadata", (status) => {
-                Debug.Log("lootsafe.global.newItem " + status.ToString());
+            StartCoroutine(lootsafe.global.newItem_POST("FNX45", "fnx45", 120000, "metadata", (status) => {
+                Debug.Log("lootsafe.global.newItem_POST " + status.ToString());
             }));
         }
 
@@ -88,16 +88,16 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingLootBox)
         {
-            StartCoroutine(lootsafe.lootbox.getChances((status) => {
-                Debug.Log("lootsafe.lootbox.getChances\n" + status.ToString());
+            StartCoroutine(lootsafe.lootbox.getChances_GET((status) => {
+                Debug.Log("lootsafe.lootbox.getChances_GET\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.getCost((status) => {
-                Debug.Log("lootsafe.lootbox.getCost\n" + status.ToString());
+            StartCoroutine(lootsafe.lootbox.getCost_GET((status) => {
+                Debug.Log("lootsafe.lootbox.getCost_GET\n" + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.getItems(rarity, (status) => {
-                Debug.Log("lootsafe.lootbox.getItems: " + rarity + "\n" + status.ToString());
+            StartCoroutine(lootsafe.lootbox.getItems_GET(rarity, (status) => {
+                Debug.Log("lootsafe.lootbox.getItems_GET: " + rarity + "\n" + status.ToString());
             }));
         }
     }

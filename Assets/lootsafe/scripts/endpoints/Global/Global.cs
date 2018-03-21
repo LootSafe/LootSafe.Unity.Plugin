@@ -11,25 +11,25 @@ public class Global
 
     private CustomYubiKeyClient yubi;
 
-    /* Private Constructor */
+    private string url_newItem = "/item/new";
 
-    private Global(){}
+    /* Constructors */
 
-    /* Public Constructor */
+    private Global(){}    
 
     public Global (string apiUrl, string apiKey, CustomYubiKeyClient yubi)
     {
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
         this.yubi = yubi;
+
+        this.url_newItem = this.apiUrl + this.url_newItem;
     }
 
-    /* Methods */
+    /* Endpoint Wrappers */
 
-    public IEnumerator newItem(string name, string id, int totalSupply, string metadata, Action<string> callback)
+    public IEnumerator newItem_POST(string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
-        string url = (apiUrl + "/item/new");
-
         Dictionary<string, string> d = new Dictionary<string, string>();
         d.Add("name", name);
         d.Add("id", id);
@@ -38,7 +38,7 @@ public class Global
 
         string jsonBody = JsonStrBuild.Instance.buildStr(d);
 
-        using (UnityWebRequest www = new UnityWebRequest(url, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest(url_newItem, "POST"))
         {
             string result = "default";
 
