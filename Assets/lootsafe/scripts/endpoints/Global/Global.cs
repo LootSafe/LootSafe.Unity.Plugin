@@ -30,11 +30,11 @@ public class Global
 
     public IEnumerator newItem_POST(string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
-        Dictionary<string, string> d = new Dictionary<string, string>();
-        d.Add("name", name);
-        d.Add("id", id);
-        d.Add("totalSupply", "" + totalSupply);
-        d.Add("metadata", "metadata");
+        Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
+        d.Add("name", new List<string> { name });
+        d.Add("id", new List<string> { id });
+        d.Add("totalSupply", new List<string> { "" + totalSupply });
+        d.Add("metadata", new List<string> { "metadata" });
 
         string jsonBody = JsonStrBuild.Instance.buildStr(d);
 
