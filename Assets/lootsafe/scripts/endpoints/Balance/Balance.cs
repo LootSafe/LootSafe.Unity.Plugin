@@ -42,7 +42,7 @@ public class Balance
 
     public IEnumerator itemBalance_GET(string itemAddress, string address, Action<string> callback)
     {
-        string url = (url_itemBalance + "/" + address);
+        string url = (url_itemBalance + address);
          
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {

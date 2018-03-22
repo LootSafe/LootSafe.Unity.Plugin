@@ -63,42 +63,54 @@ lootsafe-api-currentdate.unitypackage
 
 ### Balance
 
+**Open**
+
 * balanceOf_GET(string address)
 * itemBalances_GET(string address)
 * **~~itemBalance_GET(string itemAddress, string address)~~**
 
 ### Crafter
 
+**Open**
+
 * getCraftables_GET()
 * getDeconstructables_GET()
 * getDeconstructionRecipe_GET(string item)
 * getRecipe_GET(string item)
 
-Authenticated
+**Authenticated**
 
-* **~~newDeconstructionRecipe_POST()~~**
-* **~~newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)~~**
+* newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)
 * removeRecipe_POST(string apiKey, string otp, string item)
+* **~~newDeconstructionRecipe_POST()~~**
 
 ### Global
 
+**Authenticated**
+
 * newItem_POST(string name, string id, int totalSupply, string metadata)
+* **~~spawnItem_POST()~~**
+* **~~clearAvailability_POST()~~**
 
 ### Items
 
+**Open**
+
 * getItems_GET()
-* getItem_GET(item)
-* getItemByAddress_GET(item)
 * getItemAddresses_GET()
 * ledger_GET()
+* **~~getItem_GET(item)~~**
+* **~~getItemByAddress_GET(item)~~**
 
 ### LootBox
+
+**Open**
 
 * getChances_GET()
 * getCost_GET()
 * getItems_GET(string rarity)
 
-Authenticated
+**Authenticated**
 
 * addItem_POST(string apikey, string opt, string item, string rarity)
 * updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon)
@@ -107,13 +119,11 @@ Authenticated
 ## Issues & Future Development
 
 
-* **[Server Issue]** clearAvailability_POST
-* **[Server Issue]** getItem_GET
-* **[Server Issue]** getItemByAddress_GET
-* **[Server Issue]** spawnItem_POST
-* **[Server Issue]** itemBalance_GET
-* **[Server Issue]** newRecipe_POST
+* **[Server Issue]** balance.itemBalance_GET
+* **[Server Issue]** crafter.newDeconstructionRecipe_POST
+* **[Server Issue]** global.spawnItem_POST
+* **[Server Issue]** global.clearAvailability_POST
+* **[Server Issue]** items.getItem_GET
+* **[Server Issue]** items.getItemByAddress_GET
 
-* **[Implement]** Authentication is in place but not used..yet!
-
-* **[Discuss]** newDeconstructionRecipe_POST
+* **[Implement]** Authentication is in place for later implementation

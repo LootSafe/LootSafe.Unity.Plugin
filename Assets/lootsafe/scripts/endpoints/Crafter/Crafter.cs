@@ -10,7 +10,6 @@ public class Crafter {
     private String url_getDeconstructables = "/deconstructables";
     private String url_getDeconstructablesRecipe = "/recipe/deconstruction/get/";
     private String url_getRecipe = "/recipe/get/";
-
     private String url_newRecipe = "/recipe/new";
     private String url_removeRecipe = "/recipe/remove";
     private String url_newDeconstructionRecipe = "/recipe/deconstruction/new";
@@ -177,4 +176,11 @@ public class Crafter {
             callback(response);
         }
     }
+
+    /*
+    public IEnumerator newDeconstructionRecipe_POST(string apiKey, string otp, Action<string> callback)
+    {
+        //url_newDeconstructionRecipe
+    }
+    */
 }
