@@ -176,7 +176,7 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingEvents)
         {
-            StartCoroutine(lootsafe.events.fetchEvents(apiKey, "otpkey", (status) =>
+            StartCoroutine(lootsafe.events.fetchEvents_GET(apiKey, "otpkey", (status) =>
             {
                 Debug.Log("lootsafe.events.fetchEvents\n" + status.ToString());
             }));

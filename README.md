@@ -84,6 +84,12 @@ lootsafe-api-currentdate.unitypackage
 * removeRecipe_POST(string apiKey, string otp, string item)
 * **~~newDeconstructionRecipe_POST()~~**
 
+### Events
+
+**Open**
+
+* fetchEvents_GET(string apiKey, string otp)
+
 ### Global
 
 **Open**
