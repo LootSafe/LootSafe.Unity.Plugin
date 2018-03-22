@@ -86,6 +86,11 @@ lootsafe-api-currentdate.unitypackage
 
 ### Global
 
+**Open**
+
+* getMeta_GET()
+* getTokenAddress_GET(string tokenAddress)
+
 **Authenticated**
 
 * newItem_POST(string name, string id, int totalSupply, string metadata)

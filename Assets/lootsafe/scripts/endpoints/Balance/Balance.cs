@@ -8,9 +8,7 @@ public class Balance : MonoBehaviour
     private string url_balanceOf = "/balance/token/";
     private string url_itemBalance = "/balance/item/";
     private string url_itemBalances = "/balance/items/";
-
-    /* Constructors */
-
+    
     private Balance(){}
 
     public Balance Initialize (string apiUrl)

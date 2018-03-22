@@ -10,7 +10,9 @@ public class Global : MonoBehaviour {
     private string url_newItem = "/item/new";
     private string url_spawnItem = "/item/new";
     private string url_clearAvailability = "/item/new";
-    
+    private string url_meta = "/";
+    private string url_getTokenAddress = "/address/token";
+
     private Global(){}
 
     public Global Initialize (string apiUrl)
@@ -18,8 +20,46 @@ public class Global : MonoBehaviour {
         url_newItem = apiUrl + url_newItem;
         url_spawnItem = apiUrl + url_spawnItem;
         url_clearAvailability = apiUrl + url_clearAvailability;
+        url_meta = apiUrl + url_meta;
+        url_getTokenAddress = apiUrl + url_getTokenAddress;
 
         return this;
+    }
+
+    /* Endpoint Wrappers */
+
+    public IEnumerator getMeta_GET(Action<string> callback)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(url_meta))
+        {
+            string result = "";
+
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                result = www.error + "\nStatus Code: " + www.responseCode;
+            else
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+
+            callback(result);
+        }
+    }
+
+    public IEnumerator getTokenAddress_GET(string tokenAddress, Action<string> callback)
+    {
+        string result = url_getTokenAddress + tokenAddress;
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url_getTokenAddress))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                result = www.error + "\nStatus Code: " + www.responseCode;
+            else
+                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+
+            callback(result);
+        }
     }
 
     /* Authenticated Wrappers */
