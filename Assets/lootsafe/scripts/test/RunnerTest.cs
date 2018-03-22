@@ -39,9 +39,6 @@ public class RunnerTest : MonoBehaviour {
             StartCoroutine(lootsafe.balance.itemBalance_GET(eightTimesScopeAddress, ethAcc, (status) => {
                 Debug.Log("lootsafe.balance.itemBalance_GET: " + eightTimesScopeAddress + " " + ethAcc + "\n" + status.ToString());
             }));
-
-            Issue
-            Error Cannot create instance of Item; no code at address 0x3ab412b1ebac03791789763fba17fc1f4e368662
             */
         }
 
