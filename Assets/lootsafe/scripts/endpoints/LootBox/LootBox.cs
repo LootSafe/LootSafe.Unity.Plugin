@@ -160,5 +160,4 @@ public class LootBox : MonoBehaviour
             callback(result);
         }
     }
-
 }

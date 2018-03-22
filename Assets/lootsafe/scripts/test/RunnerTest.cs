@@ -172,7 +172,7 @@ public class RunnerTest : MonoBehaviour {
             }));
         }
 
-        /* Testing FetchEvents */
+        /* Testing Events */
 
         if (testingEvents)
         {
