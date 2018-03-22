@@ -6,11 +6,9 @@ using System.Text;
 
 public class Global
 {
-    private string apiUrl;
-    private string apiKey;
-
     private CustomYubiKeyClient yubi;
 
+    private string apiKey;
     private string url_newItem = "/item/new";
 
     /* Constructors */
@@ -19,28 +17,27 @@ public class Global
 
     public Global (string apiUrl, string apiKey, CustomYubiKeyClient yubi)
     {
-        this.apiUrl = apiUrl;
         this.apiKey = apiKey;
         this.yubi = yubi;
 
-        this.url_newItem = this.apiUrl + this.url_newItem;
+        url_newItem = apiUrl + url_newItem;
     }
 
     /* Endpoint Wrappers */
 
     public IEnumerator newItem_POST(string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
-        Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
-        d.Add("name", new List<string> { name });
-        d.Add("id", new List<string> { id });
-        d.Add("totalSupply", new List<string> { "" + totalSupply });
-        d.Add("metadata", new List<string> { "metadata" });
-
-        string jsonBody = JsonStrBuild.Instance.buildStr(d);
-
         using (UnityWebRequest www = new UnityWebRequest(url_newItem, "POST"))
         {
-            string result = "default";
+            string result = "";
+
+            Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
+            d.Add("name", new List<string> { name });
+            d.Add("id", new List<string> { id });
+            d.Add("totalSupply", new List<string> { "" + totalSupply });
+            d.Add("metadata", new List<string> { "metadata" });
+
+            string jsonBody = JsonStrBuild.Instance.buildStr(d);
 
             byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
             www.uploadHandler = new UploadHandlerRaw(bodyRaw);

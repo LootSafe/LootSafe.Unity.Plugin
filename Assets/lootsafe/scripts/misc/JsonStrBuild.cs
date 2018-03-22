@@ -13,7 +13,7 @@ public class JsonStrBuild {
         foreach (var kv in dict){
 
             if (kv.Value.Count == 1)
-                jsonStr += "\"" + kv.Key + "\":" + "\"" + kv.Value[0] + "\"";
+                jsonStr += " \"" + kv.Key + "\" : " + "\"" + kv.Value[0] + "\"";
             else
                 jsonStr += listStr(kv.Key, kv.Value);
 
@@ -30,7 +30,7 @@ public class JsonStrBuild {
 
     private string listStr(string key, List<string> val)
     {
-        string jsonSnippet = "\"" + key + "\": [ ";
+        string jsonSnippet = "\"" + key + "\" : [ ";
 
         for (int i = 0; i < val.Count; i++)
         {

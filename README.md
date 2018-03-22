@@ -59,32 +59,46 @@ Unity Package Location
 lootsafe-api-currentdate.unitypackage
 ```
 
-### Endpoints
+## Endpoints
 
-**Balance**
+### Balance
 
 * balanceOf_GET(string address)
 * itemBalances_GET(string address)
-* **~~itemBalance_GET(string itemAddress, string address)~~ In Progress**
+* **~~itemBalance_GET(string itemAddress, string address)~~**
 
-**Crafter**
+### Crafter
 
 * getCraftables_GET()
 * getDeconstructables_GET()
 * getDeconstructionRecipe_GET(string item)
 * getRecipe_GET(string item)
 
-**Global**
+Authenticated
+
+* **~~newDeconstructionRecipe_POST()~~**
+* **~~newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)~~**
+* removeRecipe_POST(string apiKey, string otp, string item)
+
+### Global
 
 * newItem_POST(string name, string id, int totalSupply, string metadata)
 
-**LootBox**
+### LootBox
 
 * getChances_GET()
 * getCost_GET()
 * getItems_GET(string rarity)
 
-### Issues
+Authenticated
 
-* OTP added to the project and ready for implementation but it isn't being used yet.
-* itemBalance endpoint isn't working. Seems to be a serverside issue currently.
+* addItem_POST(string apikey, string opt, string item, string rarity)
+* updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon)
+* updateLootBoxCost_GET(string apikey, string opt, string cost)
+
+### Issues & Future Development
+
+* OTP added to the project and ready for implementation but it isn't beinWg used yet.
+* itemBalance_GET Server side issue.
+* newDeconstructionRecipe_POST need to discuss api usage.
+* newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts) Server side issue.
