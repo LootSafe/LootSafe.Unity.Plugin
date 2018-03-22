@@ -98,7 +98,7 @@ Authenticated
 
 ## Issues & Future Development
 
-* OTP added to the project and ready for implementation but it isn't beinWg used yet.
-* [Server Issue] itemBalance_GET.
-* [Server Issue] newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts).
-* [Discuss] newDeconstructionRecipe_POST.
+* **[Implement]** Authentication is in place but not used..yet!
+* **[Server Issue]** itemBalance_GET.
+* **[Server Issue]** newRecipe_POST.
+* **[Discuss]** newDeconstructionRecipe_POST.
