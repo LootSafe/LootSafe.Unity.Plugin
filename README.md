@@ -99,6 +99,6 @@ Authenticated
 ## Issues & Future Development
 
 * OTP added to the project and ready for implementation but it isn't beinWg used yet.
-* itemBalance_GET Server side issue.
-* newDeconstructionRecipe_POST need to discuss api usage.
-* newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts) Server side issue.
+* [Server Issue] itemBalance_GET.
+* [Server Issue] newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts).
+* [Discuss] newDeconstructionRecipe_POST.
