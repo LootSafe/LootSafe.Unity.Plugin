@@ -84,6 +84,14 @@ Authenticated
 
 * newItem_POST(string name, string id, int totalSupply, string metadata)
 
+### Items
+
+* getItems_GET()
+* getItem_GET(item)
+* getItemByAddress_GET(item)
+* getItemAddresses_GET()
+* ledger_GET()
+
 ### LootBox
 
 * getChances_GET()
@@ -98,7 +106,14 @@ Authenticated
 
 ## Issues & Future Development
 
+
+* **[Server Issue]** clearAvailability_POST
+* **[Server Issue]** getItem_GET
+* **[Server Issue]** getItemByAddress_GET
+* **[Server Issue]** spawnItem_POST
+* **[Server Issue]** itemBalance_GET
+* **[Server Issue]** newRecipe_POST
+
 * **[Implement]** Authentication is in place but not used..yet!
-* **[Server Issue]** itemBalance_GET.
-* **[Server Issue]** newRecipe_POST.
-* **[Discuss]** newDeconstructionRecipe_POST.
+
+* **[Discuss]** newDeconstructionRecipe_POST

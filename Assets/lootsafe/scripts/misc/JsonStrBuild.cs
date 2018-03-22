@@ -2,7 +2,7 @@
 
 public class JsonStrBuild {
 
-    /* Method */
+    /* Methods */
 
     public string buildStr(Dictionary<string, List<string>> dict)
     {

@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Collections;
-using UnityEngine.Networking;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
+using UnityEngine.Networking;
 
-public class Global
-{
-    private CustomYubiKeyClient yubi;
+public class Global : MonoBehaviour {
 
-    private string apiKey;
     private string url_newItem = "/item/new";
+    private string url_spawnItem = "/item/new";
+    private string url_clearAvailability = "/item/new";
 
     /* Constructors */
 
-    private Global(){}    
+    private Global(){}
 
-    public Global (string apiUrl, string apiKey, CustomYubiKeyClient yubi)
+    public Global(string apiUrl)
     {
-        this.apiKey = apiKey;
-        this.yubi = yubi;
-
         url_newItem = apiUrl + url_newItem;
+        url_spawnItem = apiUrl + url_spawnItem;
+        url_clearAvailability = apiUrl + url_clearAvailability;
     }
 
-    /* Endpoint Wrappers */
+    /* Authenticated Wrappers */
 
-    public IEnumerator newItem_POST(string name, string id, int totalSupply, string metadata, Action<string> callback)
+    public IEnumerator newItem_POST(string apiKey, string otp, string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_newItem, "POST"))
         {
@@ -47,7 +46,7 @@ public class Global
             www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
             www.SetRequestHeader("dataType", "json");
             www.SetRequestHeader("key", apiKey);
-            www.SetRequestHeader("otp", yubi.otp);
+            www.SetRequestHeader("otp", otp);
 
             yield return www.SendWebRequest();
 
@@ -59,4 +58,16 @@ public class Global
             callback(result);
         }
     }
+
+    /*
+    public IEnumerator spawnItem_POST(string apiKey, string otp, Action<string> callback)
+    {
+
+    }
+
+    public IEnumerator clearAvailability_POST(string apiKey, string otp, Action<string> callback)
+    {
+
+    }
+    */
 }

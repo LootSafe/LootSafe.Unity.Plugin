@@ -17,6 +17,7 @@ public class RunnerTest : MonoBehaviour {
         bool testingBalance = true;
         bool testingCrafter = true;
         bool testingGlobal = true;
+        bool testingItems = true;
         bool testingLootBox = true;
 
         /* Testing Balance */
@@ -32,12 +33,10 @@ public class RunnerTest : MonoBehaviour {
             {
                 Debug.Log("lootsafe.balance.itemBalances_GET: " + ethAcc + "\n" + status.ToString());
             }));
-
-            /*        
-            string eightTimesScopeAddress = "0x3ab412b1ebac03791789763fba17fc1f4e368662";
-
-            StartCoroutine(lootsafe.balance.itemBalance_GET(eightTimesScopeAddress, ethAcc, (status) => {
-                Debug.Log("lootsafe.balance.itemBalance_GET: " + eightTimesScopeAddress + " " + ethAcc + "\n" + status.ToString());
+            
+            /*
+            StartCoroutine(lootsafe.balance.itemBalance_GET("0x3ab412b1ebac03791789763fba17fc1f4e368662", ethAcc, (status) => {
+                Debug.Log("lootsafe.balance.itemBalance_GET: " + "0x3ab412b1ebac03791789763fba17fc1f4e368662" + " " + ethAcc + "\n" + status.ToString());
             }));
             */
         }
@@ -75,8 +74,43 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingGlobal)
         {
-            StartCoroutine(lootsafe.global.newItem_POST("FNX45", "fnx45", 120000, "metadata", (status) => {
+            StartCoroutine(lootsafe.global.newItem_POST(apiKey, "otpkey", "FNX45", "fnx45", 120000, "metadata", (status) => {
                 Debug.Log("lootsafe.global.newItem_POST " + status.ToString());
+            }));
+
+            /*            
+            StartCoroutine(lootsafe.global.spawnItem_POST(apiKey, "otpkey", (status) => {
+                Debug.Log("lootsafe.global.spawnItem_POST " + status.ToString());
+            }));
+
+            StartCoroutine(lootsafe.global.clearAvailability_POST(apiKey, "otpkey", (status) => {
+                Debug.Log("lootsafe.global.clearAvailability_POST " + status.ToString());
+            }));
+            */
+        }
+
+        /* Testing Items*/
+
+        if (testingItems)
+        {
+            StartCoroutine(lootsafe.items.getItems_GET((status) => {
+                Debug.Log("lootsafe.global.getItems_GET " + status.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.getItem_GET(item, (status) => {
+                Debug.Log("lootsafe.global.getItem_GET " + status.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.getItemByAddress_GET(item, (status) => {
+                Debug.Log("lootsafe.global.getItemByAddress_GET " + status.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.getItemAddresses_GET((status) => {
+                Debug.Log("lootsafe.global.getItemAddresses_GET " + status.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.ledger_GET((status) => {
+                Debug.Log("lootsafe.global.ledger_GET " + status.ToString());
             }));
         }
 
@@ -107,7 +141,6 @@ public class RunnerTest : MonoBehaviour {
             StartCoroutine(lootsafe.lootbox.updateLootBoxCost_GET(apiKey, "otpkey", "1", (status) => {
                 Debug.Log("lootsafe.lootbox.updateLootBoxCost_GET:\n" + status.ToString());
             }));
-
         }
     }
 }
