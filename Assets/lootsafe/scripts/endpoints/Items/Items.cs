@@ -11,17 +11,17 @@ public class Items : MonoBehaviour {
     private String url_getItemAddresses = "/item/addresses/get";
     private String url_ledger = "/item/ledger";
 
-    /* Constructors */
-
     private Items(){}
 
-    public Items(string apiUrl)
+    public Items Initialize (string apiUrl)
     {
         url_getItems = apiUrl + url_getItems;
         url_getItem = apiUrl + url_getItem;
         url_getItemByAddress = apiUrl + url_getItemByAddress;
         url_getItemAddresses = apiUrl + url_getItemAddresses;
         url_ledger = apiUrl + url_ledger;
+
+        return this;
     }
 
     /* Endpoint Wrappers */

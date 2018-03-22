@@ -1,25 +1,23 @@
-﻿public class LootSafe
-{
-    /* End Points */
+﻿using UnityEngine;
 
+public class LootSafe : MonoBehaviour
+{
     public Balance balance;
     public Crafter crafter;
     public Global global;
     public Items items;
     public LootBox lootbox;
 
-    /* Private Constructor */
-
     private LootSafe(){}
 
-    /* Public Constructor */
-
-    public LootSafe(string apiUrl, string apiKey)
+    public LootSafe Initialize (string apiUrl, string apiKey)
     {
-        balance = new Balance(apiUrl);
-        crafter = new Crafter(apiUrl);
-        global = new Global(apiUrl);
-        items = new Items(apiUrl);
-        lootbox = new LootBox(apiUrl);
+        balance = gameObject.AddComponent<Balance>().Initialize(apiUrl);
+        crafter = gameObject.AddComponent<Crafter>().Initialize(apiUrl);
+        global = gameObject.AddComponent<Global>().Initialize(apiUrl);
+        items = gameObject.AddComponent<Items>().Initialize(apiUrl);
+        lootbox = gameObject.AddComponent<LootBox>().Initialize(apiUrl);
+
+        return this;
     }
 }

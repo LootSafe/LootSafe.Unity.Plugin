@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using UnityEngine;
 using UnityEngine.Networking;
 
-public class LootBox {
-
+public class LootBox : MonoBehaviour
+{
     private string url_getChances = "/lootbox/chances";
     private string url_getCost = "/lootbox/cost";
     private string url_getItems = "/lootbox/items/";
@@ -13,11 +14,9 @@ public class LootBox {
     private string url_updateChance = "/lootbox/chances/update/";
     private string url_updateLootBoxCost = "/lootbox/cost/";
 
-    /* Constructors */
-
     private LootBox(){}
 
-    public LootBox (string apiUrl)
+    public LootBox Initialize (string apiUrl)
     {
         url_getChances = apiUrl + url_getChances;
         url_getCost = apiUrl + url_getCost;
@@ -25,6 +24,8 @@ public class LootBox {
         url_addItem = apiUrl + url_addItem;
         url_updateChance = apiUrl + url_updateChance;
         url_updateLootBoxCost = apiUrl + url_updateLootBoxCost;
+
+        return this;
     }
 
     /* Endpoint Wrappers */

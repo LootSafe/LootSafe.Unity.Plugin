@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.Networking;
 
-public class Balance
+public class Balance : MonoBehaviour
 {
     private string url_balanceOf = "/balance/token/";
     private string url_itemBalance = "/balance/item/";
@@ -12,11 +13,13 @@ public class Balance
 
     private Balance(){}
 
-    public Balance(string apiUrl)
+    public Balance Initialize (string apiUrl)
     {
         url_balanceOf = apiUrl + url_balanceOf;
         url_itemBalance = apiUrl + url_itemBalance;
         url_itemBalances = apiUrl + url_itemBalances;
+
+        return this;
     }
 
     /* Endpoint Wrappers */

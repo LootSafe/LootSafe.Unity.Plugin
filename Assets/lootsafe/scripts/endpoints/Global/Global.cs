@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -10,16 +10,16 @@ public class Global : MonoBehaviour {
     private string url_newItem = "/item/new";
     private string url_spawnItem = "/item/new";
     private string url_clearAvailability = "/item/new";
-
-    /* Constructors */
-
+    
     private Global(){}
 
-    public Global(string apiUrl)
+    public Global Initialize (string apiUrl)
     {
         url_newItem = apiUrl + url_newItem;
         url_spawnItem = apiUrl + url_spawnItem;
         url_clearAvailability = apiUrl + url_clearAvailability;
+
+        return this;
     }
 
     /* Authenticated Wrappers */

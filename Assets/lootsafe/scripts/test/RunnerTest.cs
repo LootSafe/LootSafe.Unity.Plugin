@@ -12,7 +12,7 @@ public class RunnerTest : MonoBehaviour {
 
     void Start()
     {
-        LootSafe lootsafe = new LootSafe(apiUrl, apiKey);
+        LootSafe lootsafe = gameObject.AddComponent<LootSafe>().Initialize(apiUrl, apiKey);
 
         bool testingBalance = true;
         bool testingCrafter = true;
@@ -43,8 +43,8 @@ public class RunnerTest : MonoBehaviour {
 
         /* Testing Crafter */
 
-        if (testingCrafter) {
-
+        if (testingCrafter)
+        {
             StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
                 Debug.Log("lootsafe.crafter.getCraftables_GET\n" + status.ToString());
             }));

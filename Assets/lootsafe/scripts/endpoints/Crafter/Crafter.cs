@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using UnityEngine;
 using UnityEngine.Networking;
 
-public class Crafter {
-
+public class Crafter : MonoBehaviour
+{
     private String url_getCraftables = "/craftables";
     private String url_getDeconstructables = "/deconstructables";
     private String url_getDeconstructablesRecipe = "/recipe/deconstruction/get/";
@@ -14,11 +15,9 @@ public class Crafter {
     private String url_removeRecipe = "/recipe/remove";
     private String url_newDeconstructionRecipe = "/recipe/deconstruction/new";
 
-    /* Constructors */
-
     private Crafter(){}
 
-    public Crafter (string apiUrl)
+    public Crafter Initialize (string apiUrl)
     {
         url_getCraftables = apiUrl + url_getCraftables;
         url_getDeconstructables = apiUrl + url_getDeconstructables;
@@ -27,6 +26,8 @@ public class Crafter {
         url_newRecipe = apiUrl + url_newRecipe;
         url_removeRecipe = apiUrl + url_removeRecipe;
         url_newDeconstructionRecipe = apiUrl + url_newDeconstructionRecipe;
+
+        return this;
     }
 
     /* Endpoint Wrappers */
