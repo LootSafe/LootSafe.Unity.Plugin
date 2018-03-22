@@ -96,7 +96,7 @@ Authenticated
 * updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon)
 * updateLootBoxCost_GET(string apikey, string opt, string cost)
 
-### Issues & Future Development
+## Issues & Future Development
 
 * OTP added to the project and ready for implementation but it isn't beinWg used yet.
 * itemBalance_GET Server side issue.
