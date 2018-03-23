@@ -110,7 +110,7 @@ public class Crafter : MonoBehaviour
 
     public IEnumerator newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts, Action<string> callback)
     {
-        using (UnityWebRequest www = new UnityWebRequest(url_newRecipe, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest(url_newRecipe, UnityWebRequest.kHttpVerbPOST))
         {
             string response = "";
 
@@ -146,7 +146,7 @@ public class Crafter : MonoBehaviour
 
     public IEnumerator removeRecipe_POST(string apiKey, string otp, string item, Action<string> callback)
     {
-        using (UnityWebRequest www = new UnityWebRequest(url_removeRecipe, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest(url_removeRecipe, UnityWebRequest.kHttpVerbPOST))
         {
             string response = "";
 

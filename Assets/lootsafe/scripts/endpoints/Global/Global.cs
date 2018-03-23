@@ -66,7 +66,7 @@ public class Global : MonoBehaviour {
 
     public IEnumerator newItem_POST(string apiKey, string otp, string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
-        using (UnityWebRequest www = new UnityWebRequest(url_newItem, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest(url_newItem, UnityWebRequest.kHttpVerbPOST))
         {
             string result = "";
 

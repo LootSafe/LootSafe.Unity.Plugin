@@ -2,8 +2,6 @@
 
 public class JsonStrBuild {
 
-    /* Methods */
-
     public string buildStr(Dictionary<string, List<string>> dict)
     {
         string jsonStr = "{";

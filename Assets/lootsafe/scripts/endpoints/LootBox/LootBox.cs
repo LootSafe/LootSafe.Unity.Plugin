@@ -87,7 +87,7 @@ public class LootBox : MonoBehaviour
 
     public IEnumerator addItem_POST(string apiKey,string otp, string item, string rarity, Action<string> callback)
     {
-        using (UnityWebRequest www = new UnityWebRequest(url_addItem, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest(url_addItem, UnityWebRequest.kHttpVerbPOST))
         {
             string result = "";
 
