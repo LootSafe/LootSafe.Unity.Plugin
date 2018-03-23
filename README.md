@@ -90,7 +90,7 @@ lootsafe-api-currentdate.unitypackage
 
 * fetchEvents_GET(string apiKey, string otp)
 
-### Global
+### Globals
 
 **Open**
 

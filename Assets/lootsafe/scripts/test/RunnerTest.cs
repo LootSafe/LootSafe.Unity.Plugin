@@ -81,28 +81,28 @@ public class RunnerTest : MonoBehaviour {
 
         if (testingGlobal)
         {
-            StartCoroutine(lootsafe.global.getMeta_GET((status) =>
+            StartCoroutine(lootsafe.globals.getMeta_GET((status) =>
             {
-                Debug.Log("lootsafe.global.getMeta_GET " + status.ToString());
+                Debug.Log("lootsafe.globals.getMeta_GET " + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.global.getTokenAddress_GET("0x0", (status) =>
+            StartCoroutine(lootsafe.globals.getTokenAddress_GET("0x0", (status) =>
             {
-                Debug.Log("lootsafe.global.getTokenAddress_GET " + status.ToString());
+                Debug.Log("lootsafe.globals.getTokenAddress_GET " + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.global.newItem_POST(apiKey, "otpkey", "FNX45", "fnx45", 120000, "metadata", (status) =>
+            StartCoroutine(lootsafe.globals.newItem_POST(apiKey, "otpkey", "FNX45", "fnx45", 120000, "metadata", (status) =>
             {
-                Debug.Log("lootsafe.global.newItem_POST " + status.ToString());
+                Debug.Log("lootsafe.globals.newItem_POST " + status.ToString());
             }));
 
             /*            
-            StartCoroutine(lootsafe.global.spawnItem_POST(apiKey, "otpkey", (status) => {
-                Debug.Log("lootsafe.global.spawnItem_POST " + status.ToString());
+            StartCoroutine(lootsafe.globals.spawnItem_POST(apiKey, "otpkey", (status) => {
+                Debug.Log("lootsafe.globals.spawnItem_POST " + status.ToString());
             }));
 
-            StartCoroutine(lootsafe.global.clearAvailability_POST(apiKey, "otpkey", (status) => {
-                Debug.Log("lootsafe.global.clearAvailability_POST " + status.ToString());
+            StartCoroutine(lootsafe.globals.clearAvailability_POST(apiKey, "otpkey", (status) => {
+                Debug.Log("lootsafe.globals.clearAvailability_POST " + status.ToString());
             }));
             */
         }

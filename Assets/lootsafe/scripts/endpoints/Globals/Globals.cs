@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Global : MonoBehaviour {
+public class Globals : MonoBehaviour {
 
     private string url_newItem = "/item/new";
     private string url_spawnItem = "/item/new";
@@ -13,9 +13,9 @@ public class Global : MonoBehaviour {
     private string url_meta = "/";
     private string url_getTokenAddress = "/address/token";
 
-    private Global(){}
+    private Globals(){}
 
-    public Global Initialize (string apiUrl)
+    public Globals Initialize (string apiUrl)
     {
         url_newItem = apiUrl + url_newItem;
         url_spawnItem = apiUrl + url_spawnItem;
