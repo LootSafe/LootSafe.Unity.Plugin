@@ -39,9 +39,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -56,9 +56,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -75,9 +75,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -109,9 +109,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -131,9 +131,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -153,9 +153,9 @@ public class LootBox : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }

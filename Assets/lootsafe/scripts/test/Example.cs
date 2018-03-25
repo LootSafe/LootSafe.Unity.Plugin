@@ -9,8 +9,8 @@ public class Example : MonoBehaviour {
 
         LootSafe lootsafe = gameObject.AddComponent<LootSafe>().Initialize(apiUrl,apiKey);
 
-        StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
-            Debug.Log("lootsafe.crafter.getCraftables_GET\n" + status.ToString());
+        StartCoroutine(lootsafe.crafter.getCraftables_GET((result) => {
+            Debug.Log("lootsafe.crafter.getCraftables_GET\n" + result.ToString());
             // Do stuff with status string.
         }));
     }

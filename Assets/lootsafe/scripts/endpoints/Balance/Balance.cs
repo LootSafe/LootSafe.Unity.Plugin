@@ -25,7 +25,7 @@ public class Balance : MonoBehaviour
     public IEnumerator balanceOf_GET(string address, Action<string> callback)
     {
         string url = (url_balanceOf + address);
-                
+
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
             string result = "";
@@ -33,9 +33,9 @@ public class Balance : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -52,9 +52,9 @@ public class Balance : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -71,9 +71,9 @@ public class Balance : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }

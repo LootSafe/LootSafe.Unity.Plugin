@@ -65,8 +65,8 @@ public class JsonStrBuild {
 
     /* Singleton */
 
-    private static JsonStrBuild instance;
     private JsonStrBuild(){}
+    private static JsonStrBuild instance;
     public static JsonStrBuild Instance
     {
         get

@@ -43,9 +43,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -60,9 +60,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -79,9 +79,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -98,9 +98,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error + "\nStatus Code: " + www.responseCode;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                result = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                result = www.downloadHandler.text;
 
             callback(result);
         }
@@ -136,9 +136,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                response = www.error + "\nStatus Code: " + www.responseCode;
+                response = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                response = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                response = www.downloadHandler.text;
 
             callback(response);
         }
@@ -170,9 +170,9 @@ public class Crafter : MonoBehaviour
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                response = www.error + "\nStatus Code: " + www.responseCode;
+                response = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
-                response = www.downloadHandler.text + "\nStatus Code: " + www.responseCode;
+                response = www.downloadHandler.text;
 
             callback(response);
         }
