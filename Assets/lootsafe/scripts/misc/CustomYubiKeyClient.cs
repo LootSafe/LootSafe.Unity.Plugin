@@ -37,7 +37,7 @@ public class CustomYubiKeyClient {
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
-                result = www.error;
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
             else
                 result = www.downloadHandler.text;
 
