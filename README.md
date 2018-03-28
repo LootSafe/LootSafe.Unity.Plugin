@@ -67,7 +67,7 @@ lootsafe-api-currentdate.unitypackage
 
 * balanceOf_GET(string address)
 * itemBalances_GET(string address)
-* **~~itemBalance_GET(string itemAddress, string address)~~**
+* itemBalance_GET(string itemAddress, string address)
 
 ### Crafter
 
@@ -82,7 +82,7 @@ lootsafe-api-currentdate.unitypackage
 
 * newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)
 * removeRecipe_POST(string apiKey, string otp, string item)
-* **~~newDeconstructionRecipe_POST()~~**
+* **~~newDeconstructionRecipe_POST(string apiKey, string otp)~~**
 
 ### Events
 
@@ -100,8 +100,8 @@ lootsafe-api-currentdate.unitypackage
 **Authenticated**
 
 * newItem_POST(string name, string id, int totalSupply, string metadata)
-* **~~spawnItem_POST()~~**
-* **~~clearAvailability_POST()~~**
+* **~~spawnItem_POST(string apiKey, string otp)~~**
+* **~~clearAvailability_POST(string apiKey, string otp)~~**
 
 ### Items
 
@@ -110,8 +110,8 @@ lootsafe-api-currentdate.unitypackage
 * getItems_GET()
 * getItemAddresses_GET()
 * ledger_GET()
-* **~~getItem_GET(item)~~**
-* **~~getItemByAddress_GET(item)~~**
+* getItem_GET(string item)
+* getItemByAddress_GET(string item)
 
 ### LootBox
 
@@ -130,11 +130,8 @@ lootsafe-api-currentdate.unitypackage
 ## Issues & Future Development
 
 
-* **[Server Issue]** balance.itemBalance_GET
 * **[Server Issue]** crafter.newDeconstructionRecipe_POST
 * **[Server Issue]** global.spawnItem_POST
 * **[Server Issue]** global.clearAvailability_POST
-* **[Server Issue]** items.getItem_GET
-* **[Server Issue]** items.getItemByAddress_GET
 
 * **[Implement]** Authentication is in place for later implementation

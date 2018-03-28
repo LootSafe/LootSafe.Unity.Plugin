@@ -5,9 +5,9 @@ public class RunnerTest : MonoBehaviour
 {
     private static string apiUrl = "http://localhost:1337/v1";
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
-    private static string ethAcc = "0x5dc89fd12c328147119afb8ce6292a2aae0b5171";
+    private static string ethAcc = "0xe41d2828c69b521e5562943c38aed61698f9e7de";
 
-    private static string item = "0x8a3eb4442f6c512a1c685c8ba320e28909aaa0cb";
+    private static string item = "0x4a908ef51590de02b0f16403dfb49774b11d7847";
     private static string rarity = "uncommon";
     private static string otpkey = "otpkey";
 
@@ -18,7 +18,7 @@ public class RunnerTest : MonoBehaviour
         bool testBalance = true;
         bool testCrafter = true;
         bool testEvents = true;
-        bool testGlobal = true;
+        bool testGlobal = true;    
         bool testItems = true;
         bool testLootBox = true;
 
@@ -34,11 +34,9 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.balance.itemBalances_GET: " + ethAcc + "\n" + result.ToString());
             }));
 
-            /*
-            StartCoroutine(lootsafe.balance.itemBalance_GET("0x3ab412b1ebac03791789763fba17fc1f4e368662", ethAcc, (result) => {
-                Debug.Log("lootsafe.balance.itemBalance_GET: " + "0x3ab412b1ebac03791789763fba17fc1f4e368662" + " " + ethAcc + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.itemBalance_GET(item, ethAcc, (result) => {
+                Debug.Log("lootsafe.balance.itemBalance_GET: " + item + " " + ethAcc + "\n" + result.ToString());
             }));
-            */
         }
 
         /* Testing Crafter */
@@ -147,7 +145,7 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.lootbox.getItems_GET: " + rarity + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.addItem_POST(apiKey, otpkey, "", "", (result) => {
+            StartCoroutine(lootsafe.lootbox.addItem_POST(apiKey, otpkey, "Something", "uncommon", (result) => {
                 Debug.Log("lootsafe.lootbox.addItem_POST:\n" + result.ToString());
             }));
 

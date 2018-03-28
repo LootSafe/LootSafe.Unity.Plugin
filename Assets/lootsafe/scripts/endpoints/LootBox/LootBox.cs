@@ -85,7 +85,7 @@ public class LootBox : MonoBehaviour
 
     /* Authenticated Endpoint Wrappers */
 
-    public IEnumerator addItem_POST(string apiKey,string otp, string item, string rarity, Action<string> callback)
+    public IEnumerator addItem_POST(string apiKey, string otp, string item, string rarity, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_addItem, UnityWebRequest.kHttpVerbPOST))
         {

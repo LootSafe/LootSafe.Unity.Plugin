@@ -43,7 +43,7 @@ public class Balance : MonoBehaviour
 
     public IEnumerator itemBalance_GET(string itemAddress, string address, Action<string> callback)
     {
-        string url = (url_itemBalance + address);
+        string url = (url_itemBalance + itemAddress + "/" + address);
          
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
