@@ -45,12 +45,14 @@ public class Globals : MonoBehaviour {
         }
     }
 
-    public IEnumerator getTokenAddress_GET(string tokenAddress, Action<string> callback)
+    public IEnumerator getTokenAddress_GET(Action<string> callback)
     {
-        string result = url_getTokenAddress + tokenAddress;
+        string url = url_getTokenAddress;
 
-        using (UnityWebRequest www = UnityWebRequest.Get(url_getTokenAddress))
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
+            string result = "";
+
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)

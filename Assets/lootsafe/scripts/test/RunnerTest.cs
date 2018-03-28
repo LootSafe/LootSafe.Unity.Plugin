@@ -85,7 +85,7 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.globals.getMeta_GET\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.getTokenAddress_GET(item, (result) => {
+            StartCoroutine(lootsafe.globals.getTokenAddress_GET((result) => {
                 Debug.Log("lootsafe.globals.getTokenAddress_GET\n" + result.ToString());
             }));
 
