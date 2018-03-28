@@ -95,7 +95,7 @@ lootsafe-api-currentdate.unitypackage
 **Open**
 
 * getMeta_GET()
-* getTokenAddress_GET(string tokenAddress)
+* getTokenAddress_GET()
 
 **Authenticated**
 
