@@ -5,8 +5,8 @@ public class RunnerTest : MonoBehaviour
 {
     private static string apiUrl = "http://localhost:1337/v1";
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
-    private static string ethAcc = "0xe41d2828c69b521e5562943c38aed61698f9e7de";
 
+    private static string ethAcc = "0xe41d2828c69b521e5562943c38aed61698f9e7de";
     private static string item = "0x4a908ef51590de02b0f16403dfb49774b11d7847";
     private static string rarity = "uncommon";
     private static string otpkey = "otpkey";
@@ -72,7 +72,7 @@ public class RunnerTest : MonoBehaviour
 
         if (testEvents)
         {
-            StartCoroutine(lootsafe.events.fetchEvents_GET(apiKey, otpkey, (result) => {
+            StartCoroutine(lootsafe.events.fetchEvents_GET((result) => {
                 Debug.Log("lootsafe.events.fetchEvents\n" + result.ToString());
             }));
         }

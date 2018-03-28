@@ -17,7 +17,7 @@ public class Events : MonoBehaviour {
 
     /* Authenticated Wrappers */
 
-    public IEnumerator fetchEvents_GET(string apiKey, string otp, Action<string> callback)
+    public IEnumerator fetchEvents_GET(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_fetchevents))
         {
