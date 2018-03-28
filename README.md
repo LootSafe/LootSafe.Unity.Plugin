@@ -99,7 +99,7 @@ lootsafe-api-currentdate.unitypackage
 
 **Authenticated**
 
-* newItem_POST(string name, string id, int totalSupply, string metadata)
+* newItem_POST(string apiKey, string otp, string name, string id, int totalSupply, string metadata)
 * **~~spawnItem_POST(string apiKey, string otp)~~**
 * **~~clearAvailability_POST(string apiKey, string otp)~~**
 
