@@ -61,71 +61,43 @@ lootsafe-api-currentdate.unitypackage
 
 ## Endpoints
 
-### Balance
+## Endpoints
 
-**Open**
-
-* balanceOf_GET(string address)
-* itemBalances_GET(string address)
-* itemBalance_GET(string itemAddress, string address)
-
-### Crafter
-
-**Open**
-
-* getCraftables_GET()
-* getDeconstructables_GET()
-* getDeconstructionRecipe_GET(string item)
-* getRecipe_GET(string item)
-
-**Authenticated**
-
-* newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)
-* removeRecipe_POST(string apiKey, string otp, string item)
-* **~~newDeconstructionRecipe_POST(string apiKey, string otp)~~**
-
-### Events
-
-**Open**
-
-* fetchEvents_GET()
-
-### Globals
-
-**Open**
-
-* getMeta_GET()
-* getTokenAddress_GET()
-
-**Authenticated**
-
-* newItem_POST(string apiKey, string otp, string name, string id, int totalSupply, string metadata)
-* **~~spawnItem_POST(string apiKey, string otp)~~**
-* **~~clearAvailability_POST(string apiKey, string otp)~~**
-
-### Items
-
-**Open**
-
-* getItems_GET()
-* getItemAddresses_GET()
-* ledger_GET()
-* getItem_GET(string item)
-* getItemByAddress_GET(string item)
-
-### LootBox
-
-**Open**
-
-* getChances_GET()
-* getCost_GET()
-* getItems_GET(string rarity)
-
-**Authenticated**
-
-* addItem_POST(string apikey, string opt, string item, string rarity)
-* updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon)
-* updateLootBoxCost_GET(string apikey, string opt, string cost)
+ Endpoint  | Type | Auth | Status |
+|---|---|---|---|
+| **Balance**   |   |   |   |
+| balanceOf_GET(string address)  | **GET**  | OPEN  | Available |
+| itemBalances_GET(string address)  | **GET**  | OPEN  | Available |
+| itemBalance_GET(string itemAddress,string address)  | **GET**  | OPEN   | Available |
+| **Crafter**   |   |   |   |
+| getCraftables_GET()  | **GET**  | OPEN   | Available |
+| getDeconstructables_GET()  | **GET**  | OPEN   | Available |
+| getDeconstructionRecipe_GET(string item)  | **GET**  | OPEN   | Available |
+| getRecipe_GET(string item) | **GET**  | OPEN   | Available |
+| newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
+| removeRecipe_POST(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available |
+| ~~newDeconstructionRecipe_POST(apiKey, otp)~~ | **POST**  | AUTH   | Unavailable |
+| **Events**  |   |   |   |
+| fetchEvents_GET()  | **GET**  | OPEN   | Available |
+| **Globals**  |   |   |   |
+| getMeta_GET()  | **GET**  | OPEN   | Available |
+| getTokenAddress_GET()  | **GET**  | OPEN   | Available |
+| newItem_POST(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
+| ~~spawnItem_POST(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
+| ~~clearAvailability_POST(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
+| **Items**  |   |   |   |
+| getItems_GET()  | **GET**  | OPEN   | Available |
+| getItemAddresses_GET()  | **GET**  | OPEN   | Available |
+| ledger_GET()  | **GET**  | OPEN   | Available |
+| getItem_GET(string item)  | **GET**  | OPEN   | Available |
+| getItemByAddress_GET(string item) | **GET**  | OPEN   | Available |
+| **LootBox** |   |   |   |
+| getChances_GET()  | **GET**  | OPEN   | Available |
+| getCost_GET()  | **GET**  | OPEN   | Available |
+| getItems_GET(string rarity)  | **GET**  | OPEN   | Available |
+| addItem_POST(string apikey,string opt,string item,string rarity)  | **POST**  | AUTH  | Available |
+| updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
+| updateLootBoxCost_GET(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
 
 ## Issues & Future Development
 
