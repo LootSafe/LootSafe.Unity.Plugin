@@ -99,9 +99,6 @@ lootsafe-api-currentdate.unitypackage
 
 ## Issues & Future Development
 
-
 * **[Server Issue]** crafter.newDeconstructionRecipe_POST
 * **[Server Issue]** global.spawnItem_POST
 * **[Server Issue]** global.clearAvailability_POST
-
-* **[Implement]** Authentication is in place for later implementation
