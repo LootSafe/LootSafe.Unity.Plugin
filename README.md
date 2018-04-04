@@ -97,7 +97,7 @@ lootsafe-api-currentdate.unitypackage
 | updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
 | updateLootBoxCost_GET(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
 
-## Issues & Future Development
+### Issues & Future Development
 
 * **[Server Issue]** crafter.newDeconstructionRecipe_POST
 * **[Server Issue]** global.spawnItem_POST
