@@ -59,7 +59,7 @@ Unity Package Location
 lootsafe-api-currentdate.unitypackage
 ```
 
-## Endpoints
+### Endpoints
 
  Endpoint  | Type | Auth | Status |
 |---|---|---|---|
