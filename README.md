@@ -59,7 +59,7 @@ Unity Package Location
 lootsafe-api-currentdate.unitypackage
 ```
 
-## Endpoints
+### Endpoints
 
  Endpoint  | Type | Auth | Status |
 |---|---|---|---|
@@ -97,7 +97,7 @@ lootsafe-api-currentdate.unitypackage
 | updateChance(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
 | updateLootBoxCost(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
 
-## Issues & Future Development
+### Issues & Future Development
 
 * **[Server Issue]** crafter.newDeconstructionRecipe
 * **[Server Issue]** global.spawnItem
