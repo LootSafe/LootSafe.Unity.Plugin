@@ -28,7 +28,7 @@ public class Globals : MonoBehaviour {
 
     /* Endpoint Wrappers */
 
-    public IEnumerator getMeta_GET(Action<string> callback)
+    public IEnumerator getMeta(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_meta))
         {
@@ -45,7 +45,7 @@ public class Globals : MonoBehaviour {
         }
     }
 
-    public IEnumerator getTokenAddress_GET(Action<string> callback)
+    public IEnumerator getTokenAddress(Action<string> callback)
     {
         string url = url_getTokenAddress;
 
@@ -66,7 +66,7 @@ public class Globals : MonoBehaviour {
 
     /* Authenticated Wrappers */
 
-    public IEnumerator newItem_POST(string apiKey, string otp, string name, string id, int totalSupply, string metadata, Action<string> callback)
+    public IEnumerator newItem(string apiKey, string otp, string name, string id, int totalSupply, string metadata, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_newItem, UnityWebRequest.kHttpVerbPOST))
         {
@@ -102,12 +102,12 @@ public class Globals : MonoBehaviour {
     }
 
     /*
-    public IEnumerator spawnItem_POST(string apiKey, string otp, Action<string> callback)
+    public IEnumerator spawnItem(string apiKey, string otp, Action<string> callback)
     {
 
     }
 
-    public IEnumerator clearAvailability_POST(string apiKey, string otp, Action<string> callback)
+    public IEnumerator clearAvailability(string apiKey, string otp, Action<string> callback)
     {
 
     }

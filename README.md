@@ -33,8 +33,8 @@ public class Example : MonoBehaviour {
 
         LootSafe lootsafe = gameObject.AddComponent<LootSafe>().Initialize(apiUrl,apiKey);
 
-        StartCoroutine(lootsafe.crafter.getCraftables_GET((status) => {
-            Debug.Log("lootsafe.crafter.getCraftables_GET\n" + status.ToString());
+        StartCoroutine(lootsafe.crafter.getCraftables((status) => {
+            Debug.Log("lootsafe.crafter.getCraftables\n" + status.ToString());
             // Do stuff with status string.
         }));
     }
@@ -43,7 +43,7 @@ public class Example : MonoBehaviour {
 
 Output from Debug.Log
 ```
-lootsafe.crafter.getCraftables_GET
+lootsafe.crafter.getCraftables
 {"status":200,"message":"Craftables fetched","data":[]}
 ```
 
@@ -64,41 +64,41 @@ lootsafe-api-currentdate.unitypackage
  Endpoint  | Type | Auth | Status |
 |---|---|---|---|
 | **Balance**   |   |   |   |
-| balanceOf_GET(string address)  | **GET**  | OPEN  | Available |
-| itemBalances_GET(string address)  | **GET**  | OPEN  | Available |
-| itemBalance_GET(string itemAddress,string address)  | **GET**  | OPEN   | Available |
+| balanceOf(string address)  | **GET**  | OPEN  | Available |
+| itemBalances(string address)  | **GET**  | OPEN  | Available |
+| itemBalance(string itemAddress,string address)  | **GET**  | OPEN   | Available |
 | **Crafter**   |   |   |   |
-| getCraftables_GET()  | **GET**  | OPEN   | Available |
-| getDeconstructables_GET()  | **GET**  | OPEN   | Available |
-| getDeconstructionRecipe_GET(string item)  | **GET**  | OPEN   | Available |
-| getRecipe_GET(string item) | **GET**  | OPEN   | Available |
-| newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
-| removeRecipe_POST(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available |
-| ~~newDeconstructionRecipe_POST(apiKey, otp)~~ | **POST**  | AUTH   | Unavailable |
+| getCraftables()  | **GET**  | OPEN   | Available |
+| getDeconstructables()  | **GET**  | OPEN   | Available |
+| getDeconstructionRecipe(string item)  | **GET**  | OPEN   | Available |
+| getRecipe(string item) | **GET**  | OPEN   | Available |
+| newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
+| removeRecipe(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available |
+| ~~newDeconstructionRecipe(apiKey, otp)~~ | **POST**  | AUTH   | Unavailable |
 | **Events**  |   |   |   |
-| fetchEvents_GET()  | **GET**  | OPEN   | Available |
+| fetchEvents()  | **GET**  | OPEN   | Available |
 | **Globals**  |   |   |   |
-| getMeta_GET()  | **GET**  | OPEN   | Available |
-| getTokenAddress_GET()  | **GET**  | OPEN   | Available |
-| newItem_POST(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
-| ~~spawnItem_POST(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
-| ~~clearAvailability_POST(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
+| getMeta()  | **GET**  | OPEN   | Available |
+| getTokenAddress()  | **GET**  | OPEN   | Available |
+| newItem(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
+| ~~spawnItem(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
+| ~~clearAvailability(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
 | **Items**  |   |   |   |
-| getItems_GET()  | **GET**  | OPEN   | Available |
-| getItemAddresses_GET()  | **GET**  | OPEN   | Available |
-| ledger_GET()  | **GET**  | OPEN   | Available |
-| getItem_GET(string item)  | **GET**  | OPEN   | Available |
-| getItemByAddress_GET(string item) | **GET**  | OPEN   | Available |
+| getItems()  | **GET**  | OPEN   | Available |
+| getItemAddresses()  | **GET**  | OPEN   | Available |
+| ledger()  | **GET**  | OPEN   | Available |
+| getItem(string item)  | **GET**  | OPEN   | Available |
+| getItemByAddress(string item) | **GET**  | OPEN   | Available |
 | **LootBox** |   |   |   |
-| getChances_GET()  | **GET**  | OPEN   | Available |
-| getCost_GET()  | **GET**  | OPEN   | Available |
-| getItems_GET(string rarity)  | **GET**  | OPEN   | Available |
-| addItem_POST(string apikey,string opt,string item,string rarity)  | **POST**  | AUTH  | Available |
-| updateChance_GET(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
-| updateLootBoxCost_GET(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
+| getChances()  | **GET**  | OPEN   | Available |
+| getCost()  | **GET**  | OPEN   | Available |
+| getItems(string rarity)  | **GET**  | OPEN   | Available |
+| addItem(string apikey,string opt,string item,string rarity)  | **POST**  | AUTH  | Available |
+| updateChance(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
+| updateLootBoxCost(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
 
 ## Issues & Future Development
 
-* **[Server Issue]** crafter.newDeconstructionRecipe_POST
-* **[Server Issue]** global.spawnItem_POST
-* **[Server Issue]** global.clearAvailability_POST
+* **[Server Issue]** crafter.newDeconstructionRecipe
+* **[Server Issue]** global.spawnItem
+* **[Server Issue]** global.clearAvailability

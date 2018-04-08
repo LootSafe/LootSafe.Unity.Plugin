@@ -15,27 +15,27 @@ public class RunnerTest : MonoBehaviour
     {
         LootSafe lootsafe = gameObject.AddComponent<LootSafe>().Initialize(apiUrl, apiKey);
 
-        bool testBalance = true;
-        bool testCrafter = true;
-        bool testEvents = true;
-        bool testGlobal = true;    
+        bool testBalance = false;
+        bool testCrafter = false;
+        bool testEvents = false;
+        bool testGlobal = false;    
         bool testItems = true;
-        bool testLootBox = true;
+        bool testLootBox = false;
 
         /* Testing Balance */
 
         if (testBalance)
         {
-            StartCoroutine(lootsafe.balance.balanceOf_GET(ethAcc, (result) => {
-                Debug.Log("lootsafe.balance.balanceOf_GET: " + ethAcc + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.balanceOf(ethAcc, (result) => {
+                Debug.Log("lootsafe.balance.balanceOf: " + ethAcc + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.balance.itemBalances_GET(ethAcc, (result) => {
-                Debug.Log("lootsafe.balance.itemBalances_GET: " + ethAcc + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.itemBalances(ethAcc, (result) => {
+                Debug.Log("lootsafe.balance.itemBalances: " + ethAcc + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.balance.itemBalance_GET(item, ethAcc, (result) => {
-                Debug.Log("lootsafe.balance.itemBalance_GET: " + item + " " + ethAcc + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.itemBalance(item, ethAcc, (result) => {
+                Debug.Log("lootsafe.balance.itemBalance: " + item + " " + ethAcc + "\n" + result.ToString());
             }));
         }
 
@@ -43,28 +43,28 @@ public class RunnerTest : MonoBehaviour
 
         if (testCrafter)
         {
-            StartCoroutine(lootsafe.crafter.getCraftables_GET((result) => {
-                Debug.Log("lootsafe.crafter.getCraftables_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.getCraftables((result) => {
+                Debug.Log("lootsafe.crafter.getCraftables\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getDeconstructables_GET((result) => {
-                Debug.Log("lootsafe.crafter.getDeconstructables_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.getDeconstructables((result) => {
+                Debug.Log("lootsafe.crafter.getDeconstructables\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getDeconstructionRecipe_GET(item, (result) => {
-                Debug.Log("lootsafe.crafter.getDeconstructionRecipe_GET: " + item + "\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.getDeconstructionRecipe(item, (result) => {
+                Debug.Log("lootsafe.crafter.getDeconstructionRecipe: " + item + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.getRecipe_GET(item, (result) => {
-                Debug.Log("lootsafe.crafter.getRecipe_GET: " + item + "\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.getRecipe(item, (result) => {
+                Debug.Log("lootsafe.crafter.getRecipe: " + item + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.newRecipe_POST(apiKey, otpkey, "123456", new List<string> { "1212", "3434" }, new List<string> { "1", "2" }, (result) => {
-                Debug.Log("lootsafe.crafter.newRecipe_POST:\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.newRecipe(apiKey, otpkey, "123456", new List<string> { "1212", "3434" }, new List<string> { "1", "2" }, (result) => {
+                Debug.Log("lootsafe.crafter.newRecipe:\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.crafter.removeRecipe_POST(apiKey, otpkey, item, (result) => {
-                Debug.Log("lootsafe.crafter.removeRecipe_POST:\n" + result.ToString());
+            StartCoroutine(lootsafe.crafter.removeRecipe(apiKey, otpkey, item, (result) => {
+                Debug.Log("lootsafe.crafter.removeRecipe:\n" + result.ToString());
             }));
         }
 
@@ -72,7 +72,7 @@ public class RunnerTest : MonoBehaviour
 
         if (testEvents)
         {
-            StartCoroutine(lootsafe.events.fetchEvents_GET((result) => {
+            StartCoroutine(lootsafe.events.fetchEvents((result) => {
                 Debug.Log("lootsafe.events.fetchEvents\n" + result.ToString());
             }));
         }
@@ -81,25 +81,25 @@ public class RunnerTest : MonoBehaviour
 
         if (testGlobal)
         {
-            StartCoroutine(lootsafe.globals.getMeta_GET((result) => {
-                Debug.Log("lootsafe.globals.getMeta_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.globals.getMeta((result) => {
+                Debug.Log("lootsafe.globals.getMeta\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.getTokenAddress_GET((result) => {
-                Debug.Log("lootsafe.globals.getTokenAddress_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.globals.getTokenAddress((result) => {
+                Debug.Log("lootsafe.globals.getTokenAddress\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.newItem_POST(apiKey, otpkey, "FNX45", "fnx45", 120000, "metadata", (result) => {
-                Debug.Log("lootsafe.globals.newItem_POST\n" + result.ToString());
+            StartCoroutine(lootsafe.globals.newItem(apiKey, otpkey, "FNX45", "fnx45", 120000, "metadata", (result) => {
+                Debug.Log("lootsafe.globals.newItem\n" + result.ToString());
             }));
 
             /*            
-            StartCoroutine(lootsafe.globals.spawnItem_POST(apiKey, otpkey, (result) => {
-                Debug.Log("lootsafe.globals.spawnItem_POST " + result.ToString());
+            StartCoroutine(lootsafe.globals.spawnItem(apiKey, otpkey, (result) => {
+                Debug.Log("lootsafe.globals.spawnItem " + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.clearAvailability_POST(apiKey, otpkey, (result) => {
-                Debug.Log("lootsafe.globals.clearAvailability_POST " + result.ToString());
+            StartCoroutine(lootsafe.globals.clearAvailability(apiKey, otpkey, (result) => {
+                Debug.Log("lootsafe.globals.clearAvailability " + result.ToString());
             }));
             */
         }
@@ -108,24 +108,24 @@ public class RunnerTest : MonoBehaviour
 
         if (testItems)
         {
-            StartCoroutine(lootsafe.items.getItems_GET((result) => {
-                Debug.Log("lootsafe.global.getItems_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.items.getItems((result) => {
+                Debug.Log("lootsafe.global.getItems\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.getItem_GET(item, (result) => {
-                Debug.Log("lootsafe.global.getItem_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.items.getItem(item, (result) => {
+                Debug.Log("lootsafe.global.getItem\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.getItemByAddress_GET(item, (result) => {
-                Debug.Log("lootsafe.global.getItemByAddress_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.items.getItemByAddress(item, (result) => {
+                Debug.Log("lootsafe.global.getItemByAddress\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.getItemAddresses_GET((result) => {
-                Debug.Log("lootsafe.global.getItemAddresses_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.items.getItemAddresses((result) => {
+                Debug.Log("lootsafe.global.getItemAddresses\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.ledger_GET((result) => {
-                Debug.Log("lootsafe.global.ledger_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.items.ledger((result) => {
+                Debug.Log("lootsafe.global.ledger\n" + result.ToString());
             }));
         }
 
@@ -133,28 +133,28 @@ public class RunnerTest : MonoBehaviour
 
         if (testLootBox)
         {
-            StartCoroutine(lootsafe.lootbox.getChances_GET((result) => {
-                Debug.Log("lootsafe.lootbox.getChances_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.getChances((result) => {
+                Debug.Log("lootsafe.lootbox.getChances\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.getCost_GET((result) => {
-                Debug.Log("lootsafe.lootbox.getCost_GET\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.getCost((result) => {
+                Debug.Log("lootsafe.lootbox.getCost\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.getItems_GET(rarity, (result) => {
-                Debug.Log("lootsafe.lootbox.getItems_GET: " + rarity + "\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.getItems(rarity, (result) => {
+                Debug.Log("lootsafe.lootbox.getItems: " + rarity + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.addItem_POST(apiKey, otpkey, "Something", "uncommon", (result) => {
-                Debug.Log("lootsafe.lootbox.addItem_POST:\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.addItem(apiKey, otpkey, "Something", "uncommon", (result) => {
+                Debug.Log("lootsafe.lootbox.addItem:\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.updateChance_GET(apiKey, otpkey, "1", "2", "3", (result) => {
-                Debug.Log("lootsafe.lootbox.updateChance_GET:\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.updateChance(apiKey, otpkey, "1", "2", "3", (result) => {
+                Debug.Log("lootsafe.lootbox.updateChance:\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.updateLootBoxCost_GET(apiKey, otpkey, "1", (result) => {
-                Debug.Log("lootsafe.lootbox.updateLootBoxCost_GET:\n" + result.ToString());
+            StartCoroutine(lootsafe.lootbox.updateLootBoxCost(apiKey, otpkey, "1", (result) => {
+                Debug.Log("lootsafe.lootbox.updateLootBoxCost:\n" + result.ToString());
             }));
         }
     }

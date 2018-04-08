@@ -30,7 +30,7 @@ public class LootBox : MonoBehaviour
 
     /* Endpoint Wrappers */
 
-    public IEnumerator getChances_GET(Action<string> callback)
+    public IEnumerator getChances(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getChances))
         {
@@ -47,7 +47,7 @@ public class LootBox : MonoBehaviour
         }
     }
 
-    public IEnumerator getCost_GET(Action<string> callback)
+    public IEnumerator getCost(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getCost))
         {
@@ -64,7 +64,7 @@ public class LootBox : MonoBehaviour
         }
     }
 
-    public IEnumerator getItems_GET(string rarity, Action<string> callback)
+    public IEnumerator getItems(string rarity, Action<string> callback)
     {
         string url = (url_getItems + rarity);
 
@@ -85,7 +85,7 @@ public class LootBox : MonoBehaviour
 
     /* Authenticated Endpoint Wrappers */
 
-    public IEnumerator addItem_POST(string apiKey, string otp, string item, string rarity, Action<string> callback)
+    public IEnumerator addItem(string apiKey, string otp, string item, string rarity, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_addItem, UnityWebRequest.kHttpVerbPOST))
         {
@@ -117,7 +117,7 @@ public class LootBox : MonoBehaviour
         }
     }
 
-    public IEnumerator updateChance_GET(string apiKey, string otp, string epic, string rare, string uncommon, Action<string> callback)
+    public IEnumerator updateChance(string apiKey, string otp, string epic, string rare, string uncommon, Action<string> callback)
     {
         string url = (url_updateChance + epic + "/" + rare + "/" + uncommon);
 
@@ -139,7 +139,7 @@ public class LootBox : MonoBehaviour
         }
     }
 
-    public IEnumerator updateLootBoxCost_GET(string apiKey, string otp, string cost, Action<string> callback)
+    public IEnumerator updateLootBoxCost(string apiKey, string otp, string cost, Action<string> callback)
     {
         string url = (url_updateLootBoxCost + cost);
 

@@ -22,7 +22,7 @@ public class Balance : MonoBehaviour
 
     /* Endpoint Wrappers */
 
-    public IEnumerator balanceOf_GET(string address, Action<string> callback)
+    public IEnumerator balanceOf(string address, Action<string> callback)
     {
         string url = (url_balanceOf + address);
 
@@ -41,7 +41,7 @@ public class Balance : MonoBehaviour
         }
     }
 
-    public IEnumerator itemBalance_GET(string itemAddress, string address, Action<string> callback)
+    public IEnumerator itemBalance(string itemAddress, string address, Action<string> callback)
     {
         string url = (url_itemBalance + itemAddress + "/" + address);
          
@@ -60,7 +60,7 @@ public class Balance : MonoBehaviour
         }
     }
 
-    public IEnumerator itemBalances_GET(string address, Action<string> callback)
+    public IEnumerator itemBalances(string address, Action<string> callback)
     {
         string url = (url_itemBalances + address);
 

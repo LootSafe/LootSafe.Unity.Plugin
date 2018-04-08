@@ -26,7 +26,7 @@ public class Items : MonoBehaviour {
 
     /* Endpoint Wrappers */
 
-    public IEnumerator getItems_GET(Action<string> callback)
+    public IEnumerator getItems(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getItems))
         {
@@ -45,7 +45,7 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator getItem_GET(string item, Action<string> callback)
+    public IEnumerator getItem(string item, Action<string> callback)
     {
         string url = url_getItem + item;
 
@@ -66,7 +66,7 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator getItemByAddress_GET(string address, Action<string> callback)
+    public IEnumerator getItemByAddress(string address, Action<string> callback)
     {
         string url = url_getItemByAddress + address;
 
@@ -87,7 +87,7 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator getItemAddresses_GET(Action<string> callback)
+    public IEnumerator getItemAddresses(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getItemAddresses))
         {
@@ -106,7 +106,7 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator ledger_GET(Action<string> callback)
+    public IEnumerator ledger(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_ledger))
         {

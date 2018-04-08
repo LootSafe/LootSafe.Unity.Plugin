@@ -32,7 +32,7 @@ public class Crafter : MonoBehaviour
 
     /* Endpoint Wrappers */
 
-    public IEnumerator getCraftables_GET(Action<string> callback)
+    public IEnumerator getCraftables(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getCraftables))
         {
@@ -51,7 +51,7 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator getDeconstructables_GET(Action<string> callback)
+    public IEnumerator getDeconstructables(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_getDeconstructables))
         {
@@ -68,7 +68,7 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator getDeconstructionRecipe_GET(string item, Action<string> callback)
+    public IEnumerator getDeconstructionRecipe(string item, Action<string> callback)
     {
         string url = (url_getDeconstructablesRecipe + item);
 
@@ -87,7 +87,7 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator getRecipe_GET(string item, Action<string> callback)
+    public IEnumerator getRecipe(string item, Action<string> callback)
     {
         string url = (url_getRecipe + item);
 
@@ -108,7 +108,7 @@ public class Crafter : MonoBehaviour
 
     /* Authenticated Endpoint Wrappers */
 
-    public IEnumerator newRecipe_POST(string apiKey, string otp, string result, List<string> materials, List<string> counts, Action<string> callback)
+    public IEnumerator newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_newRecipe, UnityWebRequest.kHttpVerbPOST))
         {
@@ -144,7 +144,7 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator removeRecipe_POST(string apiKey, string otp, string item, Action<string> callback)
+    public IEnumerator removeRecipe(string apiKey, string otp, string item, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_removeRecipe, UnityWebRequest.kHttpVerbPOST))
         {
@@ -179,7 +179,7 @@ public class Crafter : MonoBehaviour
     }
 
     /*
-    public IEnumerator newDeconstructionRecipe_POST(string apiKey, string otp, Action<string> callback)
+    public IEnumerator newDeconstructionRecipe(string apiKey, string otp, Action<string> callback)
     {
         //url_newDeconstructionRecipe
     }
