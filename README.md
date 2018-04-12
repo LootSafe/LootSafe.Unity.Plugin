@@ -73,16 +73,13 @@ lootsafe-api-currentdate.unitypackage
 | getDeconstructionRecipe(string item)  | **GET**  | OPEN   | Available |
 | getRecipe(string item) | **GET**  | OPEN   | Available |
 | newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
-| removeRecipe(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available |
-| ~~newDeconstructionRecipe(apiKey, otp)~~ | **POST**  | AUTH   | Unavailable |
+| removeRecipe(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available 
 | **Events**  |   |   |   |
 | fetchEvents()  | **GET**  | OPEN   | Available |
 | **Globals**  |   |   |   |
 | getMeta()  | **GET**  | OPEN   | Available |
 | getTokenAddress()  | **GET**  | OPEN   | Available |
 | newItem(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
-| ~~spawnItem(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
-| ~~clearAvailability(string apiKey,string otp)~~  | **POST**   | AUTH   | Unavailable |
 | **Items**  |   |   |   |
 | getItems()  | **GET**  | OPEN   | Available |
 | getItemAddresses()  | **GET**  | OPEN   | Available |

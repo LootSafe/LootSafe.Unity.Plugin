@@ -177,11 +177,4 @@ public class Crafter : MonoBehaviour
             callback(response);
         }
     }
-
-    /*
-    public IEnumerator newDeconstructionRecipe(string apiKey, string otp, Action<string> callback)
-    {
-        //url_newDeconstructionRecipe
-    }
-    */
 }

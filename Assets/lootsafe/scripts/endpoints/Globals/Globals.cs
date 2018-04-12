@@ -100,16 +100,4 @@ public class Globals : MonoBehaviour {
             callback(result);
         }
     }
-
-    /*
-    public IEnumerator spawnItem(string apiKey, string otp, Action<string> callback)
-    {
-
-    }
-
-    public IEnumerator clearAvailability(string apiKey, string otp, Action<string> callback)
-    {
-
-    }
-    */
 }
