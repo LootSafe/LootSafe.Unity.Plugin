@@ -92,16 +92,6 @@ public class RunnerTest : MonoBehaviour
             StartCoroutine(lootsafe.globals.newItem(apiKey, otpkey, "FNX45", "fnx45", 120000, "metadata", (result) => {
                 Debug.Log("lootsafe.globals.newItem\n" + result.ToString());
             }));
-
-            /*            
-            StartCoroutine(lootsafe.globals.spawnItem(apiKey, otpkey, (result) => {
-                Debug.Log("lootsafe.globals.spawnItem " + result.ToString());
-            }));
-
-            StartCoroutine(lootsafe.globals.clearAvailability(apiKey, otpkey, (result) => {
-                Debug.Log("lootsafe.globals.clearAvailability " + result.ToString());
-            }));
-            */
         }
 
         /* Testing Items*/
