@@ -6,8 +6,8 @@ public class RunnerTest : MonoBehaviour
     private static string apiUrl = "http://localhost:1337/v1";
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
 
-    private static string ethAcc = "0xe41d2828c69b521e5562943c38aed61698f9e7de";
-    private static string item = "0x4a908ef51590de02b0f16403dfb49774b11d7847";
+    private static string ethAcc = "0x0163b18632c7270865329896e725ce635506daa5";
+    private static string item = "0x74533feec7f7760355d1c45fea19eb4f61af93f6";
     private static string rarity = "uncommon";
     private static string otpkey = "otpkey";
 
@@ -15,12 +15,12 @@ public class RunnerTest : MonoBehaviour
     {
         LootSafe lootsafe = gameObject.AddComponent<LootSafe>().Initialize(apiUrl, apiKey);
 
-        bool testBalance = false;
-        bool testCrafter = false;
-        bool testEvents = false;
-        bool testGlobal = false;    
+        bool testBalance = true;
+        bool testCrafter = true;
+        bool testEvents = true;
+        bool testGlobal = true;    
         bool testItems = true;
-        bool testLootBox = false;
+        bool testLootBox = true;
 
         /* Testing Balance */
 
@@ -147,7 +147,7 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.lootbox.getItems: " + rarity + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.lootbox.addItem(apiKey, otpkey, "Something", "uncommon", (result) => {
+            StartCoroutine(lootsafe.lootbox.addItem(apiKey, otpkey, "0x1234567891234567891234567891234567891234", "uncommon", (result) => {
                 Debug.Log("lootsafe.lootbox.addItem:\n" + result.ToString());
             }));
 

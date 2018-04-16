@@ -91,6 +91,8 @@ public class LootBox : MonoBehaviour
         {
             string result = "";
 
+            Debug.Log(url_addItem);
+
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>
             {
                 { "item", new List<string> { item } },
