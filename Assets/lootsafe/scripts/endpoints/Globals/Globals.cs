@@ -8,8 +8,6 @@ using UnityEngine.Networking;
 public class Globals : MonoBehaviour {
 
     private string url_newItem = "/item/new";
-    private string url_spawnItem = "/item/new";
-    private string url_clearAvailability = "/item/new";
     private string url_meta = "/";
     private string url_getTokenAddress = "/address/token";
 
@@ -18,8 +16,6 @@ public class Globals : MonoBehaviour {
     public Globals Initialize (string apiUrl)
     {
         url_newItem = apiUrl + url_newItem;
-        url_spawnItem = apiUrl + url_spawnItem;
-        url_clearAvailability = apiUrl + url_clearAvailability;
         url_meta = apiUrl + url_meta;
         url_getTokenAddress = apiUrl + url_getTokenAddress;
 

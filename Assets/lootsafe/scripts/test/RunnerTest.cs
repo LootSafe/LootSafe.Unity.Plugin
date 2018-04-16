@@ -63,6 +63,10 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.crafter.newRecipe:\n" + result.ToString());
             }));
 
+            StartCoroutine(lootsafe.crafter.newDestructionRecipe(apiKey, otpkey, "123456", new List<string> { "1212", "3434" }, new List<string> { "1", "2" }, (result) => {
+                Debug.Log("lootsafe.crafter.newDestructionRecipe:\n" + result.ToString());
+            }));
+
             StartCoroutine(lootsafe.crafter.removeRecipe(apiKey, otpkey, item, (result) => {
                 Debug.Log("lootsafe.crafter.removeRecipe:\n" + result.ToString());
             }));
@@ -116,6 +120,14 @@ public class RunnerTest : MonoBehaviour
 
             StartCoroutine(lootsafe.items.ledger((result) => {
                 Debug.Log("lootsafe.global.ledger\n" + result.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.clearAvailability(apiKey, otpkey, item, ethAcc, (result) => {
+                Debug.Log("lootsafe.items.clearAvailability\n" + result.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.spawnItem(apiKey, otpkey, item, ethAcc, (result) => {
+                Debug.Log("lootsafe.items.spawnItem\n" + result.ToString());
             }));
         }
 

@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class Items : MonoBehaviour {
 
-    private String url_getItems = "/item/list/";
-    private String url_getItem = "/item/get/";
-    private String url_getItemByAddress = "/item/get/address/";
-    private String url_getItemAddresses = "/item/addresses/get";
-    private String url_ledger = "/item/ledger";
+    private string url_getItems = "/item/list/";
+    private string url_getItem = "/item/get/";
+    private string url_getItemByAddress = "/item/get/address/";
+    private string url_getItemAddresses = "/item/addresses/get";
+    private string url_ledger = "/item/ledger";
+    private string url_spawnItem = "/item/spawn";
+    private string url_clearAvailability = "/item/clearAvailability";
 
     private Items(){}
 
@@ -20,6 +24,8 @@ public class Items : MonoBehaviour {
         url_getItemByAddress = apiUrl + url_getItemByAddress;
         url_getItemAddresses = apiUrl + url_getItemAddresses;
         url_ledger = apiUrl + url_ledger;
+        url_spawnItem = apiUrl + url_spawnItem;
+        url_clearAvailability = apiUrl + url_clearAvailability;
 
         return this;
     }
@@ -113,6 +119,72 @@ public class Items : MonoBehaviour {
             string result = "";
 
             www.chunkedTransfer = false;
+
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
+            else
+                result = www.downloadHandler.text;
+
+            callback(result);
+        }
+    }
+
+    public IEnumerator spawnItem(string apiKey, string otp, string item, string address, Action<string> callback)
+    {
+        using (UnityWebRequest www = new UnityWebRequest(url_spawnItem, UnityWebRequest.kHttpVerbPOST))
+        {
+            string result = "";
+
+            Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
+            d.Add("item", new List<string> { item });
+            d.Add("address", new List<string> { address });
+
+            string jsonBody = JsonStrBuild.Instance.buildStr(d);
+
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+
+            www.SetRequestHeader("accept", "application/json text/plain, */*; charset=UTF-8");
+            www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
+            www.SetRequestHeader("dataType", "json");
+            www.SetRequestHeader("key", apiKey);
+            www.SetRequestHeader("otp", otp);
+
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                result = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
+            else
+                result = www.downloadHandler.text;
+
+            callback(result);
+        }
+    }
+
+    public IEnumerator clearAvailability(string apiKey, string otp, string item, string address, Action<string> callback)
+    {
+        using (UnityWebRequest www = new UnityWebRequest(url_clearAvailability, UnityWebRequest.kHttpVerbPOST))
+        {
+            string result = "";
+
+            Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
+            d.Add("item", new List<string> { item });
+            d.Add("address", new List<string> { address });
+
+            string jsonBody = JsonStrBuild.Instance.buildStr(d);
+
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+
+            www.SetRequestHeader("accept", "application/json text/plain, */*; charset=UTF-8");
+            www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
+            www.SetRequestHeader("dataType", "json");
+            www.SetRequestHeader("key", apiKey);
+            www.SetRequestHeader("otp", otp);
 
             yield return www.SendWebRequest();
 

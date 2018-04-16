@@ -144,6 +144,42 @@ public class Crafter : MonoBehaviour
         }
     }
 
+    public IEnumerator newDestructionRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts, Action<string> callback)
+    {
+        using (UnityWebRequest www = new UnityWebRequest(url_newDeconstructionRecipe, UnityWebRequest.kHttpVerbPOST))
+        {
+            string response = "";
+
+            Dictionary<string, List<string>> d = new Dictionary<string, List<string>>
+            {
+                { "result", new List<string> { result } },
+                { "materials", materials },
+                { "counts", counts }
+            };
+
+            www.SetRequestHeader("accept", "application/json text/plain, */*; charset=UTF-8");
+            www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
+            www.SetRequestHeader("dataType", "json");
+            www.SetRequestHeader("key", apiKey);
+            www.SetRequestHeader("otp", otp);
+
+            string jsonBody = JsonStrBuild.Instance.buildStr(d);
+
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+                response = "{\"status\":" + www.responseCode + ",\"message\":\"" + www.error + "\",\"data\":" + "\"null\"}";
+            else
+                response = www.downloadHandler.text;
+
+            callback(response);
+        }
+    }
+
     public IEnumerator removeRecipe(string apiKey, string otp, string item, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_removeRecipe, UnityWebRequest.kHttpVerbPOST))
