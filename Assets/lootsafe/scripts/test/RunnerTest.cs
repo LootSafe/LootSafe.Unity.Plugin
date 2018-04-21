@@ -6,8 +6,8 @@ public class RunnerTest : MonoBehaviour
     private static string apiUrl = "http://localhost:1337/v1/";
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
 
-    private static string itemAddress = "0x3e96affd39b443bacee7c0548e820fbe0a06493c";
-    private static string address = "0x8aef7bb2a0af316358f89f2e9e32d2ecaf92b960";
+    private static string itemAddress = "0x2fedbb383c74d74e5cf0b193b5382e515dd55dc3";
+    private static string address = "0x1337c0de2ce6f6f75044ebaf22449db048faec5d";
     private static string rarity = "rare";
     private static string otpkey = "otpkey";
 
@@ -122,12 +122,13 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.global.ledger\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.clearAvailability(apiKey, otpkey, itemAddress, (result) => {
-                Debug.Log("lootsafe.items.clearAvailability\n" + result.ToString());
-            }));
-
             StartCoroutine(lootsafe.items.spawnItem(apiKey, otpkey, itemAddress, address, (result) => {
                 Debug.Log("lootsafe.items.spawnItem\n" + result.ToString());
+            }));
+
+            StartCoroutine(lootsafe.items.clearAvailability(apiKey, otpkey, itemAddress, (result) => {
+                Debug.Log("lootsafe.items.clearAvailability\n" + result.ToString());
+                Debug.Log("[WARNING] This has cleared the availabilty of the hardcoded item, please repopulate the data");
             }));
         }
 
