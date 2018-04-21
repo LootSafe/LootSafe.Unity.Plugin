@@ -88,7 +88,7 @@ lootsafe-api-currentdate.unitypackage
 | getItem(string item)  | **GET**  | OPEN   | Available |
 | getItemByAddress(string item) | **GET**  | OPEN   | Available |
 | spawnItem(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
-| clearAvailability(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
+| clearAvailability(string apiKey, string otpkey, string itemAddress)  | **POST**  | AUTH  | Available |
 | **LootBox** |   |   |   |
 | getChances()  | **GET**  | OPEN   | Available |
 | getCost()  | **GET**  | OPEN   | Available |
