@@ -6,8 +6,8 @@ public class RunnerTest : MonoBehaviour
     private static string apiUrl = "http://localhost:1337/v1/";
     private static string apiKey = "pWpzWuxoKUKAmlHc0wPi7lFS38FTth";
 
-    private static string itemAddress = "0xb10fe2917fdd7de5b0a89da90c27a7f99ecdb976";
-    private static string account = "0xbcaf0bc4cf0dd32c5cb807830d4ffeb5e29b3ec0";
+    private static string itemAddress = "0x3e96affd39b443bacee7c0548e820fbe0a06493c";
+    private static string address = "0x8aef7bb2a0af316358f89f2e9e32d2ecaf92b960";
     private static string rarity = "rare";
     private static string otpkey = "otpkey";
 
@@ -26,16 +26,16 @@ public class RunnerTest : MonoBehaviour
 
         if (testBalance)
         {
-            StartCoroutine(lootsafe.balance.balanceOf(account, (result) => {
-                Debug.Log("lootsafe.balance.balanceOf: " + account + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.balanceOf(address, (result) => {
+                Debug.Log("lootsafe.balance.balanceOf: " + address + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.balance.itemBalances(account, (result) => {
-                Debug.Log("lootsafe.balance.itemBalances: " + account + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.itemBalances(address, (result) => {
+                Debug.Log("lootsafe.balance.itemBalances: " + address + "\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.balance.itemBalance(itemAddress, account, (result) => {
-                Debug.Log("lootsafe.balance.itemBalance: " + itemAddress + " " + account + "\n" + result.ToString());
+            StartCoroutine(lootsafe.balance.itemBalance(itemAddress, address, (result) => {
+                Debug.Log("lootsafe.balance.itemBalance: " + itemAddress + " " + address + "\n" + result.ToString());
             }));
         }
 
@@ -126,7 +126,7 @@ public class RunnerTest : MonoBehaviour
                 Debug.Log("lootsafe.items.clearAvailability\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.items.spawnItem(apiKey, otpkey, itemAddress, account, (result) => {
+            StartCoroutine(lootsafe.items.spawnItem(apiKey, otpkey, itemAddress, address, (result) => {
                 Debug.Log("lootsafe.items.spawnItem\n" + result.ToString());
             }));
         }
