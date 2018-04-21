@@ -7,13 +7,13 @@ using UnityEngine.Networking;
 
 public class Items : MonoBehaviour {
 
-    private string url_getItems = "/item/list/";
-    private string url_getItem = "/item/get/";
-    private string url_getItemByAddress = "/item/get/address/";
-    private string url_getItemAddresses = "/item/addresses/get";
-    private string url_ledger = "/item/ledger";
-    private string url_spawnItem = "/item/spawn";
-    private string url_clearAvailability = "/item/clearAvailability";
+    private string url_getItems = "item/list/";
+    private string url_getItem = "item/get/";
+    private string url_getItemByAddress = "item/get/address/";
+    private string url_getItemAddresses = "item/addresses/get";
+    private string url_ledger = "item/ledger";
+    private string url_spawnItem = "item/spawn";
+    private string url_clearAvailability = "item/clearAvailability";
 
     private Items(){}
 
@@ -51,9 +51,9 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator getItem(string item, Action<string> callback)
+    public IEnumerator getItem(string itemAddress, Action<string> callback)
     {
-        string url = url_getItem + item;
+        string url = url_getItem + itemAddress;
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -72,9 +72,9 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator getItemByAddress(string address, Action<string> callback)
+    public IEnumerator getItemByAddress(string itemAddress, Action<string> callback)
     {
-        string url = url_getItemByAddress + address;
+        string url = url_getItemByAddress + itemAddress;
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -131,15 +131,15 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator spawnItem(string apiKey, string otp, string item, string address, Action<string> callback)
+    public IEnumerator spawnItem(string apiKey, string otp, string itemAddress, string to, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_spawnItem, UnityWebRequest.kHttpVerbPOST))
         {
             string result = "";
 
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
-            d.Add("item", new List<string> { item });
-            d.Add("address", new List<string> { address });
+            d.Add("itemAddress", new List<string> { itemAddress });
+            d.Add("to", new List<string> { to });
 
             string jsonBody = JsonStrBuild.Instance.buildStr(d);
 
@@ -164,15 +164,14 @@ public class Items : MonoBehaviour {
         }
     }
 
-    public IEnumerator clearAvailability(string apiKey, string otp, string item, string address, Action<string> callback)
+    public IEnumerator clearAvailability(string apiKey, string otp, string itemAddress, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_clearAvailability, UnityWebRequest.kHttpVerbPOST))
         {
             string result = "";
 
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
-            d.Add("item", new List<string> { item });
-            d.Add("address", new List<string> { address });
+            d.Add("itemAddress", new List<string> { itemAddress });
 
             string jsonBody = JsonStrBuild.Instance.buildStr(d);
 

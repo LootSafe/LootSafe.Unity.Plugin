@@ -70,11 +70,11 @@ lootsafe-api-currentdate.unitypackage
 | **Crafter**   |   |   |   |
 | getCraftables()  | **GET**  | OPEN   | Available |
 | getDeconstructables()  | **GET**  | OPEN   | Available |
-| getDeconstructionRecipe(string item)  | **GET**  | OPEN   | Available |
-| getRecipe(string item) | **GET**  | OPEN   | Available |
+| getDeconstructionRecipe(string itemAddress)  | **GET**  | OPEN   | Available |
+| getRecipe(string itemAddress) | **GET**  | OPEN   | Available |
 | newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
 | newDestructionRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
-| removeRecipe(string apiKey,string otp,string item)  | **POST**  | AUTH   | Available 
+| removeRecipe(string apiKey,string otp,string itemAddress)  | **POST**  | AUTH   | Available 
 | **Events**  |   |   |   |
 | fetchEvents()  | **GET**  | OPEN   | Available |
 | **Globals**  |   |   |   |
@@ -87,12 +87,12 @@ lootsafe-api-currentdate.unitypackage
 | ledger()  | **GET**  | OPEN   | Available |
 | getItem(string item)  | **GET**  | OPEN   | Available |
 | getItemByAddress(string item) | **GET**  | OPEN   | Available |
-| spawnItem(string apiKey, string otpkey, string item, string ethAcc)  | **POST**  | AUTH  | Available |
-| clearAvailability(string apiKey, string otpkey, string item, string ethAcc)  | **POST**  | AUTH  | Available |
+| spawnItem(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
+| clearAvailability(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
 | **LootBox** |   |   |   |
 | getChances()  | **GET**  | OPEN   | Available |
 | getCost()  | **GET**  | OPEN   | Available |
 | getItems(string rarity)  | **GET**  | OPEN   | Available |
-| addItem(string apikey,string opt,string item,string rarity)  | **POST**  | AUTH  | Available |
-| updateChance(string apikey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
-| updateLootBoxCost(string apikey, string opt, string cost)  | **GET**  | AUTH  | Available |
+| addItem(string apiKey,string opt,string itemAddress,string rarity)  | **POST**  | AUTH  | Available |
+| updateChance(string apiKey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
+| updateLootBoxCost(string apiKey, string opt, string cost)  | **GET**  | AUTH  | Available |

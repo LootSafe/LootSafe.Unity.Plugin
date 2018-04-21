@@ -7,9 +7,9 @@ using UnityEngine.Networking;
 
 public class Globals : MonoBehaviour {
 
-    private string url_newItem = "/item/new";
-    private string url_meta = "/";
-    private string url_getTokenAddress = "/address/token";
+    private string url_meta = "";
+    private string url_newItem = "item/new";
+    private string url_getTokenAddress = "address/token";
 
     private Globals(){}
 

@@ -7,12 +7,12 @@ using UnityEngine.Networking;
 
 public class LootBox : MonoBehaviour
 {
-    private string url_getChances = "/lootbox/chances";
-    private string url_getCost = "/lootbox/cost";
-    private string url_getItems = "/lootbox/items/";
-    private string url_addItem = "/lootbox/item/add";
-    private string url_updateChance = "/lootbox/chances/update/";
-    private string url_updateLootBoxCost = "/lootbox/cost/";
+    private string url_getChances = "lootbox/chances";
+    private string url_getCost = "lootbox/cost";
+    private string url_getItems = "lootbox/items/";
+    private string url_addItem = "lootbox/item/add";
+    private string url_updateChance = "lootbox/chances/update/";
+    private string url_updateLootBoxCost = "lootbox/cost/";
 
     private LootBox(){}
 
@@ -85,17 +85,15 @@ public class LootBox : MonoBehaviour
 
     /* Authenticated Endpoint Wrappers */
 
-    public IEnumerator addItem(string apiKey, string otp, string item, string rarity, Action<string> callback)
+    public IEnumerator addItem(string apiKey, string otp, string itemAddress, string rarity, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_addItem, UnityWebRequest.kHttpVerbPOST))
         {
             string result = "";
 
-            Debug.Log(url_addItem);
-
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>
             {
-                { "item", new List<string> { item } },
+                { "item", new List<string> { itemAddress } },
                 { "rarity", new List<string> { rarity } }
             };
 
@@ -105,6 +103,9 @@ public class LootBox : MonoBehaviour
             www.uploadHandler = new UploadHandlerRaw(bodyRaw);
             www.downloadHandler = new DownloadHandlerBuffer();
 
+            www.SetRequestHeader("accept", "application/json text/plain, */*; charset=UTF-8");
+            www.SetRequestHeader("content-type", "application/json; charset=UTF-8");
+            www.SetRequestHeader("dataType", "json");
             www.SetRequestHeader("key", apiKey);
             www.SetRequestHeader("otp", otp);
 

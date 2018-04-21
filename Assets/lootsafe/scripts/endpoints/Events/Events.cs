@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class Events : MonoBehaviour {
 
-    private string url_fetchevents= "/events";
+    private string url_fetchevents= "events";
 
     private Events(){}
 

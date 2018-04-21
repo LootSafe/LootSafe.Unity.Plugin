@@ -7,13 +7,13 @@ using UnityEngine.Networking;
 
 public class Crafter : MonoBehaviour
 {
-    private String url_getCraftables = "/craftables";
-    private String url_getDeconstructables = "/deconstructables";
-    private String url_getDeconstructablesRecipe = "/recipe/deconstruction/get/";
-    private String url_getRecipe = "/recipe/get/";
-    private String url_newRecipe = "/recipe/new";
-    private String url_removeRecipe = "/recipe/remove";
-    private String url_newDeconstructionRecipe = "/recipe/deconstruction/new";
+    private String url_getCraftables = "craftables";
+    private String url_getDeconstructables = "deconstructables";
+    private String url_getDeconstructablesRecipe = "recipe/deconstruction/get/";
+    private String url_getRecipe = "recipe/get/";
+    private String url_newRecipe = "recipe/new";
+    private String url_removeRecipe = "recipe/remove";
+    private String url_newDeconstructionRecipe = "recipe/deconstruction/new";
 
     private Crafter(){}
 
@@ -68,9 +68,9 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator getDeconstructionRecipe(string item, Action<string> callback)
+    public IEnumerator getDeconstructionRecipe(string itemAddress, Action<string> callback)
     {
-        string url = (url_getDeconstructablesRecipe + item);
+        string url = (url_getDeconstructablesRecipe + itemAddress);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -87,9 +87,9 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator getRecipe(string item, Action<string> callback)
+    public IEnumerator getRecipe(string itemAddress, Action<string> callback)
     {
-        string url = (url_getRecipe + item);
+        string url = (url_getRecipe + itemAddress);
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -180,7 +180,7 @@ public class Crafter : MonoBehaviour
         }
     }
 
-    public IEnumerator removeRecipe(string apiKey, string otp, string item, Action<string> callback)
+    public IEnumerator removeRecipe(string apiKey, string otp, string itemAddress, Action<string> callback)
     {
         using (UnityWebRequest www = new UnityWebRequest(url_removeRecipe, UnityWebRequest.kHttpVerbPOST))
         {
@@ -188,7 +188,7 @@ public class Crafter : MonoBehaviour
 
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>
             {
-                { "item", new List<string> { item } }
+                { "item", new List<string> { itemAddress } }
             };
 
             string jsonBody = JsonStrBuild.Instance.buildStr(d);
