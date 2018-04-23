@@ -66,35 +66,35 @@ lootsafe-api-currentdate.unitypackage
  Endpoint  | Type | Auth | Status |
 |---|---|---|---|
 | **Balance**   |   |   |   |
-| balanceOf(string address)  | **GET**  | OPEN  | Available |
-| itemBalances(string address)  | **GET**  | OPEN  | Available |
-| itemBalance(string itemAddress,string address)  | **GET**  | OPEN   | Available |
+| balance.balanceOf(string address)  | **GET**  | OPEN  | Available |
+| balance.itemBalances(string address)  | **GET**  | OPEN  | Available |
+| balance.itemBalance(string itemAddress,string address)  | **GET**  | OPEN   | Available |
 | **Crafter**   |   |   |   |
-| getCraftables()  | **GET**  | OPEN   | Available |
-| getDeconstructables()  | **GET**  | OPEN   | Available |
-| getDeconstructionRecipe(string itemAddress)  | **GET**  | OPEN   | Available |
-| getRecipe(string itemAddress) | **GET**  | OPEN   | Available |
-| newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
-| newDestructionRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
-| removeRecipe(string apiKey,string otp,string itemAddress)  | **POST**  | AUTH   | Available 
+| crafter.getCraftables()  | **GET**  | OPEN   | Available |
+| crafter.getDeconstructables()  | **GET**  | OPEN   | Available |
+| crafter.getDeconstructionRecipe(string itemAddress)  | **GET**  | OPEN   | Available |
+| crafter.getRecipe(string itemAddress) | **GET**  | OPEN   | Available |
+| crafter.newRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
+| crafter.newDestructionRecipe(string apiKey, string otp, string result, List<string> materials, List<string> counts)  | **POST**  | AUTH   | Available |
+| crafter.removeRecipe(string apiKey,string otp,string itemAddress)  | **POST**  | AUTH   | Available 
 | **Events**  |   |   |   |
-| fetchEvents()  | **GET**  | OPEN   | Available |
-| **Globals**  |   |   |   |
-| getMeta()  | **GET**  | OPEN   | Available |
-| getTokenAddress()  | **GET**  | OPEN   | Available |
-| newItem(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
+| events.fetchEvents()  | **GET**  | OPEN   | Available |
+| **General**  |   |   |   |
+| general.meta()  | **GET**  | OPEN   | Available |
+| general.getTokenAddress()  | **GET**  | OPEN   | Available |
+| general.newItem(string apiKey,string otp,string name,string id,string totalSupply,string metadata) | **POST**  | AUTH   | Available |
 | **Items**  |   |   |   |
-| getItems()  | **GET**  | OPEN   | Available |
-| getItemAddresses()  | **GET**  | OPEN   | Available |
-| ledger()  | **GET**  | OPEN   | Available |
-| getItem(string item)  | **GET**  | OPEN   | Available |
-| getItemByAddress(string item) | **GET**  | OPEN   | Available |
-| spawnItem(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
-| clearAvailability(string apiKey, string otpkey, string itemAddress)  | **POST**  | AUTH  | Available |
+| items.getItems()  | **GET**  | OPEN   | Available |
+| items.getItemAddresses()  | **GET**  | OPEN   | Available |
+| items.ledger()  | **GET**  | OPEN   | Available |
+| items.getItem(string item)  | **GET**  | OPEN   | Available |
+| items.getItemByAddress(string item) | **GET**  | OPEN   | Available |
+| items.spawnItem(string apiKey, string otpkey, string itemAddress, string address)  | **POST**  | AUTH  | Available |
+| items.clearAvailability(string apiKey, string otpkey, string itemAddress)  | **POST**  | AUTH  | Available |
 | **LootBox** |   |   |   |
-| getChances()  | **GET**  | OPEN   | Available |
-| getCost()  | **GET**  | OPEN   | Available |
-| getItems(string rarity)  | **GET**  | OPEN   | Available |
-| addItem(string apiKey,string opt,string itemAddress,string rarity)  | **POST**  | AUTH  | Available |
-| updateChance(string apiKey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
-| updateLootBoxCost(string apiKey, string opt, string cost)  | **GET**  | AUTH  | Available |
+| lootbox.getChances()  | **GET**  | OPEN   | Available |
+| lootbox.getCost()  | **GET**  | OPEN   | Available |
+| lootbox.getItems(string rarity)  | **GET**  | OPEN   | Available |
+| lootbox.addItem(string apiKey,string opt,string itemAddress,string rarity)  | **POST**  | AUTH  | Available |
+| lootbox.updateChance(string apiKey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
+| lootbox.updateLootBoxCost(string apiKey, string opt, string cost)  | **GET**  | AUTH  | Available |

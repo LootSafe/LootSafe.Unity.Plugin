@@ -85,16 +85,16 @@ public class RunnerTest : MonoBehaviour
 
         if (testGlobal)
         {
-            StartCoroutine(lootsafe.globals.getMeta((result) => {
-                Debug.Log("lootsafe.globals.getMeta\n" + result.ToString());
+            StartCoroutine(lootsafe.general.meta((result) => {
+                Debug.Log("lootsafe.general.meta\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.getTokenAddress((result) => {
-                Debug.Log("lootsafe.globals.getTokenAddress\n" + result.ToString());
+            StartCoroutine(lootsafe.general.getTokenAddress((result) => {
+                Debug.Log("lootsafe.general.getTokenAddress\n" + result.ToString());
             }));
 
-            StartCoroutine(lootsafe.globals.newItem(apiKey, otpkey, "FNX45", "fnx45", 120000, "metadata", (result) => {
-                Debug.Log("lootsafe.globals.newItem\n" + result.ToString());
+            StartCoroutine(lootsafe.general.newItem(apiKey, otpkey, "FNX45", "fnx45", 120000, "metadata", (result) => {
+                Debug.Log("lootsafe.general.newItem\n" + result.ToString());
             }));
         }
 

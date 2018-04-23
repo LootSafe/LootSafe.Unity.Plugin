@@ -5,15 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Globals : MonoBehaviour {
+public class General : MonoBehaviour {
 
     private string url_meta = "";
     private string url_newItem = "item/new";
     private string url_getTokenAddress = "address/token";
 
-    private Globals(){}
+    private General(){}
 
-    public Globals Initialize (string apiUrl)
+    public General Initialize (string apiUrl)
     {
         url_newItem = apiUrl + url_newItem;
         url_meta = apiUrl + url_meta;
@@ -24,7 +24,7 @@ public class Globals : MonoBehaviour {
 
     /* Endpoint Wrappers */
 
-    public IEnumerator getMeta(Action<string> callback)
+    public IEnumerator meta(Action<string> callback)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url_meta))
         {

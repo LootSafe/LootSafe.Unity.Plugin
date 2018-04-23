@@ -5,7 +5,7 @@ public class LootSafe : MonoBehaviour
     public Balance balance;
     public Crafter crafter;
     public Events events;
-    public Globals globals;
+    public General general;
     public Items items;
     public LootBox lootbox;
 
@@ -16,7 +16,7 @@ public class LootSafe : MonoBehaviour
         balance = gameObject.AddComponent<Balance>().Initialize(apiUrl);
         crafter = gameObject.AddComponent<Crafter>().Initialize(apiUrl);
         events = gameObject.AddComponent<Events>().Initialize(apiUrl);
-        globals = gameObject.AddComponent<Globals>().Initialize(apiUrl);
+        general = gameObject.AddComponent<General>().Initialize(apiUrl);
         items = gameObject.AddComponent<Items>().Initialize(apiUrl);
         lootbox = gameObject.AddComponent<LootBox>().Initialize(apiUrl);
 
