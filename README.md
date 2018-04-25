@@ -124,5 +124,5 @@ lootsafe.crafter.getCraftables
 
 ### Future Development
 * Authentication on some routes
-* API Key setup better documented
+* API key setup better documented
 * Less hardcoding
