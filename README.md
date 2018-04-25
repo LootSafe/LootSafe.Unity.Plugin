@@ -9,6 +9,7 @@ Check out [our website](http://lootsafe.io/) for more information.
 * [Requirements and Installation](#requirements-and-installation)
 * [Running the example](#running-the-example)
 * [Endpoints](#endpoints)
+* [Future Development](#future-development)
 
 ## Requirements and Installation
 
@@ -120,3 +121,8 @@ lootsafe.crafter.getCraftables
 | lootbox.addItem(string apiKey,string opt,string itemAddress,string rarity)  | **POST**  | AUTH  | Available |
 | lootbox.updateChance(string apiKey, string opt, string epic, string rare, string uncommon) | **GET**  | AUTH  | Available |
 | lootbox.updateLootBoxCost(string apiKey, string opt, string cost)  | **GET**  | AUTH  | Available |
+
+### Future Development
+* Authentication on some routes
+* API Key setup better documented
+* Less hardcoding
