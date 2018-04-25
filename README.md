@@ -1,25 +1,59 @@
 # LootSafe.Unity.Plugin
 
-### Environment
+LootSafe API abstraction written in C# for Unity3D to aid developers with integrating LootSafe's services with their games.
 
-Currently working on Unity3D version 2017.3.1f1 running on Windows 10.
+Check out [our website](http://lootsafe.io/) for more information.
 
-Player Settings
+## Index
+
+* [Requirements and Installation](#requirements-and-installation)
+* [Running the example](#running-the-example)
+* [Endpoints](#endpoints)
+
+## Requirements and Installation
+
+Currently working on **Unity3D version 2017.3.1f1** running on Windows 10.
+
+**Step 1** 
+
+Clone/Download this repository
+
+**Step 2** 
+
+Make sure your player settings are configured
+
+**Player Settings**
 
 * **Scripting Runtime** - Version Experimental (.NET 4.6 Equivalent)
 * **Scripting Backend** - Mono
 * **API Compatibility** - .NET 4.6
 
-### Usage
+**Step 3** 
+
+Once downloaded by clicking on the unitypackage named
 
 ```
-Assets/lootsafe/scripts/test/RunnerTest.cs
+lootsafe-api-date.unitypackage
 ```
-**RunnerTest.cs is a MonoBehaviour.** Due to the library restrictions of Unity3D where **System.Net.Http** is not included we are restricted to using **UnityEngine.Networking** . 
 
-This requires that the class you call the API from **must inherit MonoBehaviour** this allows the use of CoRoutines to call the API.
+you'll be prompted by Unity to import the asset to your current project.
 
-The example below is the most minimalist usage case. The script has been attached to an object in the scene and the scripts **void Start()** gets called when the scene loads.
+Once done you'll notice a folder named **lootsafe** has been imported.
+
+**Step 4**
+
+To use LootSafe's API wrapper in your Unity3D scene do the following
+
+* Create an empty GameObject named "LootSafe"
+* Add the ```lootsafe/scripts/test/Example.cs``` to our new GameObject
+
+### Running the example
+
+**RunnerTest.cs is a MonoBehaviour.** Due to the library restrictions of Unity3D where **System.Net.Http** is not used we are restricted to using **UnityEngine.Networking** without having to use a 3rd party solution. 
+
+This requires that the class you call the API from **must inherit MonoBehaviour** because this allows the use of CoRoutines to call the API.
+
+The example below is the most minimalist usage case.
 
 ```
 using UnityEngine;
@@ -47,18 +81,6 @@ Output from Debug.Log
 ```
 lootsafe.crafter.getCraftables
 {"status":200,"message":"Craftables fetched","data":[]}
-```
-
-### Source and Importing
-
-Source Directory Location
-```
-Assets/lootsafe/scripts/
-```
-
-Unity Package Location
-```
-lootsafe-api-currentdate.unitypackage
 ```
 
 ### Endpoints
